@@ -170,13 +170,13 @@ def ub_freq(beta,gamma,previous_freq,distance,shift):
 
 def linkage_disequilibrium(alpha,beta,gamma,strength=-1):
   ub = gamma*math.log2(1/beta)
-  tau = random.uniform(min(ub,strength*ub),ub)
+  shift = random.uniform(min(ub,strength*ub),ub)
   def LD(p):
     def ld(t):
       q = afs_sample(alpha)
-      while not(lb_freq(beta,gamma,p,t,tau) <= q <= ub_freq(beta,gamma,p,t,tau)):
+      while not(lb_freq(beta,gamma,p,t,shift) <= q <= ub_freq(beta,gamma,p,t,shift)):
         q = afs_sample(alpha)
-      l = decay(amplifier(beta,p,q),2*gamma,tau)(t)+1
+      l = decay(amplifier(beta,p,q),2*gamma,shift)(t)+1
       return l, q
     return ld
   return LD
