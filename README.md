@@ -1,5 +1,5 @@
 # HaploDynamics
-HaploDynamics, or HaploDX for short, is a python library that one can use to simulate genomic data.
+HaploDynamics, or HaploDX for short, is a python library providing functions that can be used to population-specific simulate genomic data.
 
 You can find a tutorial (and presentation) of this library on my personal webpage (click <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">here</a>).
 
