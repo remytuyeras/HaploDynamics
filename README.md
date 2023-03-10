@@ -4,7 +4,7 @@ A python library to simulate genomic data
 You can find a tutorial and presentation of this library on my personal webpage (click <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">here</a>).
 
 The following lines show how to use the library to generate genomic data with LD-blocks of length 20kb, 5kb, 20kb, 35kb, 30kb and 15kb. 
-```
+```python
 matrix = genmatrix([20,5,20,35,30,15],strength=1,population=0.1)
 create_vcfgz("genomic-data.simulation.v1",matrix)
 ```
