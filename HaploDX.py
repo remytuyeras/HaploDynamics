@@ -452,7 +452,7 @@ def create_vcfgz(vcf_name,matrix,system="unix"):
     f.flush()
   f.close()
 
-matrix = genmatrix([20,5,20,35,30,15],strength=1,population=0.1)
-create_vcfgz("genomic-data.simulation.v1",matrix)
+#matrix = genmatrix([20,5,20,35,30,15],strength=1,population=0.1)
+#create_vcfgz("genomic-data.simulation.v1",matrix)
 
 
