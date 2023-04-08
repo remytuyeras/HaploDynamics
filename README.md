@@ -26,10 +26,10 @@ def afs_distribution(index: int,alpha: float = 4/30) -> float
 def afs_intervals(pick: float,alpha: float = 4/30) -> list[float]
 ```
 ```python
-def afs_sample(alpha: float =4/30) -> float
+def afs_sample(alpha: float = 4/30) -> float
 ```
 ```python
-def genotype_schema(alpha=4/30) -> tuple[float,list[float]]
+def genotype_schema(alpha: float = 4/30) -> tuple[float,list[float]]
 ```
 ```python
 def genotype(hwp: list[float],minor: int) -> tuple[int,int]
