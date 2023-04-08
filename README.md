@@ -18,6 +18,7 @@ You can find a tutorial (and presentation) of this library on my personal webpag
 
 ```python
 def stochastic_line(a: float,b: float,sigma: float) -> Callable[float,float]
+population_mut = stochastic_line(0.08,0.17,0.01)
 ```
 ```python
 def afs_distribution(index: int,alpha: float = 4/30) -> float
