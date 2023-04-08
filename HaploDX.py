@@ -3,6 +3,7 @@ import random
 import math
 import matplotlib.pyplot as plt
 import scipy.stats as stat
+import datetime
 
 def stochastic_line(a,b,sigma):
   return lambda t: random.gauss(a*t+b*(1-t),sigma)
@@ -255,10 +256,10 @@ def cond_genotype_schema(previous_maf,distance,alpha,beta,gamma,strength=-1):
 #distance = 1
 ##We let the distance from SNP1 to SNP2 be 200kb to model independence
 ##distance = 200
+
 #maf2, hwp2, ld2 = cond_genotype_schema(maf1,distance,alpha_mld,beta_mld,gamma_mld)
 #minor2 = random.choice([0,2])
 #g2 = [genotype(hwp2(g1[i]),minor2) for i in range(1000)]
-
 #plt.hist([gref(g2[i]) for i in range(1000)],facecolor="green",alpha=0.5)
 #plt.title("maf ~" + str(int(maf2*100)/100),fontsize = 40)
 #plt.grid(True)
@@ -380,9 +381,6 @@ def display(rel,m):
   #plt.ylim([0, 1])
   #plt.show()
 
-
-#------------------------
-
 def minor_haplotype(sub_pre_matrix):
   count = 0
   n,m = len(sub_pre_matrix), (len(sub_pre_matrix[0]) if len(sub_pre_matrix) != 0 else 0)
@@ -399,7 +397,7 @@ def LD_r2_matrix(pre_matrix):
   rel, m = list(), 0
   dist = [[] for _ in range(len(pre_matrix))]
   for i in range(len(pre_matrix)):
-
+    #Part of the code differing from LD_corr_matrix
     rel.append([])
     p1 = minor_haplotype([pre_matrix[i]])
     for j in range(len(pre_matrix)):
@@ -408,7 +406,7 @@ def LD_r2_matrix(pre_matrix):
       dist[abs(i-j)].append(r)
       m = max(abs(r),m)
       rel[i].append(r)
-
+  #Same ending as in LD_corr_matrix
   dist = [sum(dist[k])/len(dist[k]) for k in range(len(dist))]
   return rel, m, dist
 
@@ -428,31 +426,54 @@ def LD_r2_matrix(pre_matrix):
   #plt.ylim([0, 1])
   #plt.show()
 
-def genmatrix(blocks,strength,population):
+def genmatrix(blocks,strength,population,Npop):
   reference = 0
   alpha_mld, beta_mld, gamma_mld = population_mld(population)
-  maf, pre_matrix, matrix = initiate_block(reference,alpha_mld)
+  maf, pre_matrix, matrix = initiate_block(reference,alpha_mld,Npop)
   for i in range(len(blocks)):
     positions = SNP_distribution(reference,blocks[i])
-    maf, pre_matrix, matrix = continue_block(maf,pre_matrix,matrix,positions,alpha_mld,beta_mld,gamma_mld,strength)
+    maf, pre_matrix, matrix = continue_block(maf,pre_matrix,matrix,positions,alpha_mld,beta_mld,gamma_mld,strength,Npop)
     reference = positions[-1]
-  return matrix
+  return matrix, alpha_mld, beta_mld, gamma_mld
 
-def create_vcfgz(vcf_name,matrix,system="unix"):
+def gt_vcf(value):
+  if value == 0:
+    return "0|0"
+  elif value == 1:
+    return "0|1"
+  elif value == -1:
+    return "1|0"
+  elif value == 2:
+    return "1|1"
+  else:
+    return ".|."
+
+def create_vcfgz(vcf_name,matrix,alpha,beta,gamma,system="unix"):
   f = gzip.open(vcf_name+".vcf.gz","wt")
   eol = "\n" if system=="unix" else "\r\n"
+  f.write("##fileformat=VCFv4.2"+eol)
+  f.write("##fileDate="+"".join(str(datetime.date.today()).split("-"))+eol)
+  f.write("##source=HaploDX"+eol)
+  f.write("##reference=https://github.com/remytuyeras/HaploDynamics/blob/main/README.md"+eol)
+  f.write("##contig=<ID=23,length="+str(len(matrix))+",species=\"simulated Homo sapiens\">"+eol)
+  f.write("##INFO=<ID=NS,Number=1,Type=Integer,Description=\"Number of Samples With Data\">"+eol)
+  f.write("##INFO=<ID=AP,Number=1,Type=Float,Description=\"Alpha Parameter for Simulation\">"+eol)
+  f.write("##INFO=<ID=BP,Number=1,Type=Float,Description=\"Beta Parameter for Simulation\">"+eol)
+  f.write("##INFO=<ID=CP,Number=1,Type=Float,Description=\"Gamma Parameter for Simulation\">"+eol)
+  f.write("##FORMAT=<ID=GT,Number=1,Type=String,Description=\"Genotype\">"+eol)
+  INDIV = "\t".join(map(lambda s: "ID"+"0"*(6-len(str(s)))+str(s),range(1,len(matrix[0]))))
+  f.write("#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO\tFORMAT\t"+INDIV+eol)
+  f.flush()
   nuc = ["A","C","G","T"]
   for i in range(len(matrix)):
     print(matrix[i][:10])
     A = random.choice(nuc)
     B = random.choice(nuc[:nuc.index(A)]+nuc[nuc.index(A)+1:])
-    info = ["chr?",str(int(1000*matrix[i][0])),A,B]
-    genotypes = [str(matrix[i][j]) for j in range(1,len(matrix[i]))]
+    info = ["23", str(int(1000*matrix[i][0])), ".", A, B, ".", "PASS", "NS="+str(len(matrix[i])-1)+";AP="+str(alpha)+";BP="+str(beta)+";CP="+str(gamma), "GT"]
+    genotypes = [gt_vcf(matrix[i][j]) for j in range(1,len(matrix[i]))]
     f.write("\t".join(info+genotypes)+eol)
     f.flush()
   f.close()
 
-#matrix = genmatrix([20,5,20,35,30,15],strength=1,population=0.1)
-#create_vcfgz("genomic-data.simulation.v1",matrix)
-
-
+#simulated_data = genmatrix([20,5,20,35,30,15],strength=1,population=0.1,Npop=1000)
+#create_vcfgz("genomic-data.simulation.v1",*simulated_data)
