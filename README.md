@@ -14,7 +14,7 @@ The equation ```stregnth=1``` forces a high amount of linkage disequilibrium and
 
 You can find a tutorial (and presentation) of this library on my personal webpage (click <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">here</a>).
 
-#### Population related
+#### Population and Allele Frequency Spectrum Modeling
 
 ```python
 def stochastic_line(a: float,b: float,sigma: float) -> Callable[float,float]
@@ -41,7 +41,7 @@ gref = lambda g: g[0] if g[0] in [2,0] else g[1]
 def population_mld(t: float) -> tuple[float,float,float]
 ```
 
-#### LD and Hardy–Weinberg principle
+#### LD and Hardy–Weinberg Principle
 
 ```python
 def decay(initial: float,halfwidth: float,shift: float) -> Callable[float,float]
@@ -68,7 +68,7 @@ def linkage_disequilibrium(alpha: float,beta: float,gamma: float,strength: float
 def cond_genotype_schema(previous_maf: float,distance: float,alpha: float,beta: float,gamma: float,strength: float = -1) -> tuple[float,list[float],float]
 ```
 
-#### Data generation
+#### Data Generation (in VCF files)
 
 ```python
 def SNP_distribution(reference: float,length: float) -> list[float]
