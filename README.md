@@ -3,7 +3,7 @@ HaploDynamics, or HaploDX for short, is a python library providing functions tha
 
 ### Quick start
 
-The following lines of code gives a typical example of how one can use the library to generate genomic data for 1000 individuals with LD-blocks of length 20kb, 5kb, 20kb, 35kb, 30kb and 15kb. 
+The following lines of code illustrate how one can use the library to generate genomic data for 1000 individuals with LD-blocks of length 20kb, 5kb, 20kb, 35kb, 30kb and 15kb. 
 ```python
 simulated_data = genmatrix([20,5,20,35,30,15],strength=1,population=0.1,Npop=1000)
 create_vcfgz("genomic-data.simulation.v1",*simulated_data)
