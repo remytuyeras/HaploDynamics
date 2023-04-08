@@ -41,7 +41,7 @@ gref = lambda g: g[0] if g[0] in [2,0] else g[1]
 def population_mld(t: float) -> tuple[float,float,float]
 ```
 
-#### LD and Hardy–Weinberg Principle
+#### LD and Hardy–Weinberg Principle Modeling
 
 ```python
 def decay(initial: float,halfwidth: float,shift: float) -> Callable[float,float]
@@ -89,7 +89,7 @@ def gt_vcf(value: int)-> str
 def create_vcfgz(vcf_name: str,matrix: list[list],alpha: float,beta: float,gamma: float,system: str = "unix") -> None
 ```
 
-#### Analytics
+#### LD Analytics
 
 ```python
 def LD_corr_matrix(matrix: list[list]) -> tuple[list[list],float,list[float]]
