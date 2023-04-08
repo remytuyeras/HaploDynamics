@@ -41,7 +41,7 @@ gref = lambda g: g[0] if g[0] in [2,0] else g[1]
 def population_mld(t: float) -> tuple[float,float,float]
 ```
 
-#### LD and Hardy–Weinberg principle related
+#### LD and Hardy–Weinberg principle
 
 ```python
 def decay(initial: float,halfwidth: float,shift: float) -> Callable[float,float]
@@ -68,7 +68,7 @@ def linkage_disequilibrium(alpha: float,beta: float,gamma: float,strength: float
 def cond_genotype_schema(previous_maf: float,distance: float,alpha: float,beta: float,gamma: float,strength: float = -1) -> tuple[float,list[float],float]
 ```
 
-#### Data generation related
+#### Data generation
 
 ```python
 def SNP_distribution(reference: float,length: float) -> list[float]
