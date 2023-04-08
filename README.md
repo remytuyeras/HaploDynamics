@@ -78,7 +78,7 @@ def initiate_block(reference: float,alpha: float,Npop: int = 1000) -> tuple[floa
 def continue_block(maf0: float,pre_matrix: list[list],matrix: list[list],positions: list[float],alpha: float,beta: float,gamma: float,strength: int = -1,Npop: int = 1000) -> tuple[float,list[list],list[list]]
 ```
 ```python
-def genmatrix(blocks: list[int],strength: float,population: float,Npop: int):
+def genmatrix(blocks: list[int],strength: float,population: float,Npop: int)
 ```
 ```python
 def gt_vcf(value: int)-> str
