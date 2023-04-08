@@ -35,7 +35,7 @@ def genotype_schema(alpha=4/30) -> tuple[float,list[float]]
 def genotype(hwp: list[float],minor: int) -> tuple[int,int]
 ```
 ```python
-gref= lambda g: g[0] if g[0] in [2,0] else g[1]
+gref = lambda g: g[0] if g[0] in [2,0] else g[1]
 ```
 ```python
 def population_mld(t: float) -> tuple[float,float,float]
