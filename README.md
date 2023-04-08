@@ -95,14 +95,13 @@ def create_vcfgz(vcf_name: str,matrix: list[list],alpha: float,beta: float,gamma
 def LD_corr_matrix(matrix: list[list]) -> tuple[list[list],float,list[float]]
 ```
 ```python
+def LD_r2_matrix(pre_matrix: list[list]) -> tuple[list[list],float,list[float]]
+```
+```python
 def display(rel: list[list],m: float) -> list[list[tuple[float,float,float]]]
 ```
 ```python
 def minor_haplotype(sub_pre_matrix: list[list]) -> float
 ```
-```python
-def LD_r2_matrix(pre_matrix: list[list]) -> tuple[list[list],float,list[float]]
-```
-
 
 
