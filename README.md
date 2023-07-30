@@ -12,6 +12,21 @@ create_vcfgz("genomic-data.simulation.v1",*simulated_data)
 ```
 The equation ```stregnth=1``` forces a high amount of linkage disequilibrium and the equation ```population=0.1``` increases the likelyhood of the simulated population to have rare mutations (e.g. to simulate a population profile close to African and South-Asian populations). 
 
+The following script shows how to display the linkage disequilibirum correlations associated with the simulated data.
+```python
+import matplotlib.pyplot as plt
+from HaploDynamics.HaploDX import genmatrix, create_vcfgz, display, LD_corr_matrix
+
+simulated_data = genmatrix([20,5,20,35,30,15],strength=1,population=0.1,Npop=1000)
+create_vcfgz("genomic-data.simulation.v1",*simulated_data)
+
+rel, m, dist = LD_corr_matrix(simulated_data[0])
+plt.imshow(display(rel,m))
+plt.show()
+```
+![alt text](http://www.normalesup.org/~tuyeras/node_diss/blg/blg_stat/img/LD_block_corr_strength_high.png)
+
+
 ### HaploDX Functions
 
 You can find a tutorial (and presentation) of this library on my personal webpage (click <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">here</a>).
