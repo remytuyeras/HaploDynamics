@@ -20,7 +20,7 @@ from HaploDynamics.HaploDX import genmatrix, create_vcfgz, display, LD_corr_matr
 simulated_data = genmatrix([20,5,20,35,30,15],strength=1,population=0.1,Npop=1000)
 create_vcfgz("genomic-data.simulation.v1",*simulated_data)
 
-rel, m, dist = LD_corr_matrix(simulated_data[0])
+rel, m, _ = LD_corr_matrix(simulated_data[0])
 plt.imshow(display(rel,m))
 plt.show()
 ```
