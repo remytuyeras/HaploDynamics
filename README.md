@@ -3,7 +3,7 @@ The python library **HaploDynamics**, or **HaploDX** for short, provides a colle
 
 ### Quick start
 
-The following example provides a minimal script that can be used to generate genomic data for 1000 individuals with LD-blocks of length 20kb, 5kb, 20kb, 35kb, 30kb and 15kb. 
+The following script generates a VCF file containing simulated genomic data for a population of 1000 individuals with LD-blocks of length 20kb, 5kb, 20kb, 35kb, 30kb and 15kb. 
 ```python
 from HaploDynamics.HaploDX import genmatrix , create_vcfgz
 
