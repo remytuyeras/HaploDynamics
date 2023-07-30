@@ -29,7 +29,7 @@ plt.show()
 
 ### HaploDX Functions
 
-You can find a tutorial (and presentation) of the **HaploDX** library on my personal webpage (<a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">here</a>).
+You can find a thorough presentation (or in fact a detailed tutorial) of the **HaploDX** library on my personal webpage (<a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">here</a>).
 
 #### Population and Allele Frequency Spectrum Modeling
 
