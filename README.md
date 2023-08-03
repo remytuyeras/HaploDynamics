@@ -27,10 +27,10 @@ The equation ```stregnth=1``` forces a high amount of linkage disequilibrium and
 More generally, the function ```genmatrix()``` takes the following types of parameters:
 Parameters | Type | Values
 | :--- | :--- | :---
-```blocks```  | ```list[int]``` | list of positive integers. Ideally, between 1 and 40.
-```strength```  | ```float``` | from -1 (little linkage) to 1 (high linkage)
-```population```  | ```float``` | from 0 (for more rare mutations) to 1 (for less rare mutations)
-```Npop```  | ```int```  | positive integer specifying the number of individuals in the genomic matrix
+```blocks```  | ```list[int]``` | List of positive integers, ideally between 1 and 40.
+```strength```  | ```float``` | From -1 (little linkage) to 1 (high linkage)
+```population```  | ```float``` | From 0 (for more rare mutations) to 1 (for less rare mutations)
+```Npop```  | ```int```  | Positive integer specifying the number of individuals in the genomic matrix
 
 The generation of each locus in a VCF file tend to be linear in the parameter ```Npop```. For example, one SNP takes from 0.3 to 0.6 seconds to be simulated when ```Npop=100000``` (this may vary depending on your machine). The estimated time complexity for an average machine is shown below.
 
