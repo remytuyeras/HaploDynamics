@@ -1,6 +1,15 @@
 # HaploDynamics
 The python library **HaploDynamics**, or **HaploDX** for short, provides a collection of functions that can be used to simulate population-specific genomic data.
 
+### Installation
+
+```bash
+$ git clone https://github.com/remytuyeras/HaploDynamics.git
+$ ls
+HaploDynamics
+```
+Then, use your script in the folder where the folder HaploDynamics is located.
+
 ### Quick start
 
 The following script generates a VCF file containing simulated genomic data for a population of 1000 individuals with LD-blocks of length 20kb, 5kb, 20kb, 35kb, 30kb and 15kb. 
