@@ -34,7 +34,7 @@ Parameters | Type | Values
 ```population```  | ```float``` | From 0 (for more rare mutations) to 1 (for less rare mutations)
 ```Npop```  | ```int```  | Positive integer specifying the number of individuals in the genomic matrix
 
-The generation of each locus in a VCF file tend to be linear in the parameter ```Npop```. For example, one genetic variant can take from 0.3 to 0.6 seconds to be generated/simulated when we set ```Npop=100000``` (this may vary depending on your machine). The estimated time complexity for an average machine is shown below.
+The generation of each locus in a VCF file tend to be linear in the parameter ```Npop```. For example, one genetic variant can take from 0.3 to 0.8 seconds to be generated/simulated when we set ```Npop=100000``` (this may vary depending on your machine). The estimated time complexity for an average machine is shown below.
 
 ![GitHub Logo](/time_complexity.png)
 
