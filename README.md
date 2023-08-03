@@ -12,7 +12,7 @@ create_vcfgz("genomic-data.simulation.v1",*simulated_data)
 ```
 The equation ```stregnth=1``` forces a high amount of linkage disequilibrium and the equation ```population=0.1``` increases the likelyhood of the simulated population to have rare mutations (e.g. to simulate a population profile close to African and South-Asian populations). More generally, the function ```genmatrix()``` takes the following types of parameters:
 Parameters | Type | Range
-| :---: | :---: | :---:
+| :---: | :---: | :---
 ```strength```  | ```float``` | from -1 to 1
 ```population```  | ```float``` | from 0 (for more rare mutations) to 1 (for less rare mutations)
 ```population```  | ```int```  | positive integers
