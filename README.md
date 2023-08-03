@@ -29,7 +29,7 @@ Parameters | Type | Range
 ```population```  | ```float``` | from 0 (for more rare mutations) to 1 (for less rare mutations)
 ```Npop```  | ```int```  | positive integer specifying the number of individuals in the genomic matrix
 
-The generation of each locus in a VCF file tend to be linear in the parameter ```Npop```. For example, the generation of 1 SNP takes around 0.7 seconds when ```Npop=100000``` (this may vary depending on your machine specifications). Note that some generations can take much less time than the estimated time complexity (shown below).
+The generation of each locus in a VCF file tend to be linear in the parameter ```Npop```. For example, the generation of 1 SNP takes around 0.7 seconds when ```Npop=100000``` (this may vary depending on your machine specifications). The estimated time complexity is shown below.
 ![GitHub Logo](/time_complexity.png)
 
 The following script shows how to display the linkage disequilibirum correlations associated with the simulated data.
