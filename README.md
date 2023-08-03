@@ -48,7 +48,7 @@ rel, m, _ = LD_corr_matrix(simulated_data[0])
 plt.imshow(display(rel,m))
 plt.show()
 ```
-The following plot is an example of an output returned by the previous script.
+The following plot is an example of an output returned by the previous script when using 6 LD-blocks of 20kb each.
 ![alt text](http://www.normalesup.org/~tuyeras/node_diss/blg/blg_stat/img/LD_block_corr_strength_high.png)
 
 
