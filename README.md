@@ -10,6 +10,7 @@ Then, use your script where the folder ```HaploDynamics``` is located.
 ```bash
 $ ls
 HaploDynamics
+$ touch myscript.py
 ```
 
 ### Quick start
