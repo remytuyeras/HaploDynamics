@@ -10,7 +10,15 @@ from HaploDynamics.HaploDX import genmatrix , create_vcfgz
 simulated_data = genmatrix([20,5,20,35,30,15],strength=1,population=0.1,Npop=1000)
 create_vcfgz("genomic-data.simulation.v1",*simulated_data)
 ```
-The equation ```stregnth=1``` forces a high amount of linkage disequilibrium and the equation ```population=0.1``` increases the likelyhood of the simulated population to have rare mutations (e.g. to simulate a population profile close to African and South-Asian populations). 
+The equation ```stregnth=1``` forces a high amount of linkage disequilibrium and the equation ```population=0.1``` increases the likelyhood of the simulated population to have rare mutations (e.g. to simulate a population profile close to African and South-Asian populations). More generally, the function ```genmatrix()``` takes the following types of parameters:
+Parameters | Type | Range
+| :---: | :---: | :---:
+```strength```  | ```float``` | from -1 to 1
+```population```  | ```float``` | from 0 (for more rare mutations) to 1 (for less rare mutations)
+```population```  | ```int```  | positive integers
+
+The generation of each locus in a VCF file tend to be linear in the parameter ```Npop```. For example, the generation of 1 SNP takes 0.6 seconds when ```Npop=100000```. Some generation may take even less time.
+
 
 The following script shows how to display the linkage disequilibirum correlations associated with the simulated data.
 ```python
