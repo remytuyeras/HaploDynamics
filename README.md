@@ -5,11 +5,9 @@ The python library **HaploDynamics**, or **HaploDX** for short, provides a colle
 
 ```bash
 $ git clone https://github.com/remytuyeras/HaploDynamics.git
-$ ls
-HaploDynamics
 ```
 Then, use your script where the folder ```HaploDynamics``` is located.
-```shell
+```bash
 $ ls
 HaploDynamics
 ```
