@@ -9,6 +9,10 @@ $ ls
 HaploDynamics
 ```
 Then, use your script where the folder ```HaploDynamics``` is located.
+```shell
+$ ls
+HaploDynamics
+```
 
 ### Quick start
 
