@@ -8,7 +8,7 @@ $ git clone https://github.com/remytuyeras/HaploDynamics.git
 $ ls
 HaploDynamics
 ```
-Then, use your script in the folder where the folder HaploDynamics is located.
+Then, use your script in the folder where the folder ```HaploDynamics``` is located.
 
 ### Quick start
 
