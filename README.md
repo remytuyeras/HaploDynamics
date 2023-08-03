@@ -60,6 +60,8 @@ You can find a thorough presentation (or in fact a detailed tutorial) of the **H
 
 ```python
 def stochastic_line(a: float,b: float,sigma: float) -> Callable[float,float]
+```
+```python
 population_mut = stochastic_line(0.08,0.17,0.01)
 ```
 ```python
