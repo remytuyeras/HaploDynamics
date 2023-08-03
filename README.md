@@ -23,9 +23,9 @@ The equation ```stregnth=1``` forces a high amount of linkage disequilibrium and
 Parameters | Type | Range
 | :--- | :--- | :---
 ```blocks```  | ```list[int]``` | list of positive integers. Ideally, between 1 and 40.
-```strength```  | ```float``` | from -1 to 1
+```strength```  | ```float``` | from -1 (little linkage) to 1 (high linkage)
 ```population```  | ```float``` | from 0 (for more rare mutations) to 1 (for less rare mutations)
-```Npop```  | ```int```  | positive integers
+```Npop```  | ```int```  | positive integer specifying the number of individuals in the genomic matrix
 
 The generation of each locus in a VCF file tend to be linear in the parameter ```Npop```. For example, the generation of 1 SNP takes 0.6 seconds when ```Npop=100000```. Some generation may take even less time (see the estimated time complexity below).
 ![GitHub Logo](/time_complexity.png)
