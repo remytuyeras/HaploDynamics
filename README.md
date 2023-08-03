@@ -55,7 +55,7 @@ The following plot is an example of an output returned by the previous script wh
 
 ### HaploDX Functions
 
-You can find a complete presentation (or in fact a thorough tutorial) of the **HaploDX** library on my personal webpage (<a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">here</a>). Below is the list of all functions accessible from the library. It is recommended to first experiment with the functions presented in the [Data Generation](data-generation-%28in-vcf-files%29) section.
+You can find a complete presentation (or in fact a thorough tutorial) of the **HaploDX** library on my personal webpage (<a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">here</a>). Below is the list of all functions accessible from the library. It is recommended to first experiment with the functions presented in the [Data Generation](#data-generation-%28in-vcf-files%29) section.
 
 #### Population and Allele Frequency Spectrum Modeling
 
