@@ -55,7 +55,7 @@ The following plot is an example of an output returned by the previous script wh
 
 ### HaploDX Functions
 
-You can find a thorough presentation (or in fact a detailed tutorial) of the **HaploDX** library on my personal webpage (<a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">here</a>).
+You can find a complete presentation (or in fact a thorough tutorial) of the **HaploDX** library on my personal webpage (<a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">here</a>). Below is the list of all functions accessible from the library. It is recommended to first experiment with the functions presented in the [Data Generation](data-generation-(in-VCF-files)) section.
 
 #### Population and Allele Frequency Spectrum Modeling
 
@@ -119,15 +119,23 @@ def cond_genotype_schema(previous_maf: float,distance: float,alpha: float,beta: 
 ```python
 def SNP_distribution(reference: float,length: float) -> list[float]
 ```
+* generate the list of positions for the VCF file
 ```python
 def initiate_block(reference: float,alpha: float,Npop: int = 1000) -> tuple[float,list[list],list[list]]
 ```
+* initialize the first LD-block of the simulation
+* ```reference``` refers to the first locus position at which the generation starts
 ```python
 def continue_block(maf0: float,pre_matrix: list[list],matrix: list[list],positions: list[float],alpha: float,beta: float,gamma: float,strength: int = -1,Npop: int = 1000) -> tuple[float,list[list],list[list]]
 ```
+* generates an LD-block from a given position with a given minor allele frequency
+* augments the genomic matrix with further genetic variants as specified by the arguments
 ```python
 def genmatrix(blocks: list[int],strength: float,population: float,Npop: int)
 ```
+* implements a basic genomic matrix generator using ```SNP_distribution```, ```initiate_block``` and ```continue_block```
+* many possible improvements and variation of this function are possible (see tutorial <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">here</a> for more detail)
+  
 ```python
 def gt_vcf(value: int)-> str
 ```
