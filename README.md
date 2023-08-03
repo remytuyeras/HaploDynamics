@@ -19,7 +19,9 @@ from HaploDynamics.HaploDX import genmatrix , create_vcfgz
 simulated_data = genmatrix([20,5,20,35,30,15],strength=1,population=0.1,Npop=1000)
 create_vcfgz("genomic-data.simulation.v1",*simulated_data)
 ```
-The equation ```stregnth=1``` forces a high amount of linkage disequilibrium and the equation ```population=0.1``` increases the likelyhood of the simulated population to have rare mutations (e.g. to simulate a population profile close to African and South-Asian populations). More generally, the function ```genmatrix()``` takes the following types of parameters:
+The equation ```stregnth=1``` forces a high amount of linkage disequilibrium and the equation ```population=0.1``` increases the likelyhood of the simulated population to have rare mutations (e.g. to simulate a population profile close to African and South-Asian populations). 
+
+More generally, the function ```genmatrix()``` takes the following types of parameters:
 Parameters | Type | Range
 | :--- | :--- | :---
 ```blocks```  | ```list[int]``` | list of positive integers. Ideally, between 1 and 40.
