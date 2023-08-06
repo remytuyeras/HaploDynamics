@@ -1,1 +1,2 @@
-from HaploDynamics import *
+import HaploDynamics.HaploDX
+import HaploDynamics.Framework

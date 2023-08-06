@@ -3,10 +3,9 @@ import setuptools
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-
 setuptools.setup(
   name = 'HaploDynamics',
-  packages=setuptools.find_packages(),
+  packages=setuptools.find_packages(include=['HaploDX','Framework']),
   version = 'v0.1-beta.0',
   license='gpl-3.0',
   author = 'Remy Tuyeras',
@@ -21,6 +20,7 @@ setuptools.setup(
   classifiers=[
     'Development Status :: 4 - Beta',  #"3 - Alpha", "4 - Beta" or "5 - Production/Stable"
     'Intended Audience :: Developers',
+    'Intended Audience :: Science/Research',
     'Topic :: Software Development :: Build Tools',
     'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
     'Programming Language :: Python :: 3',
