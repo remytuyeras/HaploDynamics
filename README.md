@@ -19,10 +19,10 @@ $ touch myscript.py
 
 The following script generates a VCF file containing simulated diploid genotypes for a population of 1000 individuals with LD-blocks of length 20kb, 5kb, 20kb, 35kb, 30kb and 15kb. 
 ```python
-from HaploDynamics.HaploDX import genmatrix , create_vcfgz
+import HaploDynamics.HaploDX as hdx
 
-simulated_data = genmatrix([20,5,20,35,30,15],strength=1,population=0.1,Npop=1000)
-create_vcfgz("genomic-data.simulation.v1",*simulated_data)
+simulated_data = hdx.genmatrix([20,5,20,35,30,15],strength=1,population=0.1,Npop=1000)
+hdx.create_vcfgz("genomic-data.simulation.v1",*simulated_data)
 ```
 The equation ```strength=1``` forces a high amount of linkage disequilibrium and the equation ```population=0.1``` increases the likelyhood of the simulated population to have rare mutations (e.g. to simulate a population profile close to African and South-Asian populations). 
 
@@ -41,13 +41,13 @@ The generation of each locus in a VCF file tend to be linear in the parameter ``
 The following script shows how to display the linkage disequilibirum correlations associated with the simulated data.
 ```python
 import matplotlib.pyplot as plt
-from HaploDynamics.HaploDX import genmatrix, create_vcfgz, display, LD_corr_matrix
+import HaploDynamics.HaploDX as hdx
 
-simulated_data = genmatrix([20,5,20,35,30,15],strength=1,population=0.1,Npop=1000)
-create_vcfgz("genomic-data.simulation.v1",*simulated_data)
+simulated_data = hdx.genmatrix([20,5,20,35,30,15],strength=1,population=0.1,Npop=1000)
+hdx.create_vcfgz("genomic-data.simulation.v1",*simulated_data)
 
-rel, m, _ = LD_corr_matrix(simulated_data[0])
-plt.imshow(display(rel,m))
+rel, m, _ = hdx.LD_corr_matrix(simulated_data[0])
+plt.imshow(hdx.display(rel,m))
 plt.show()
 ```
 The following plot is an example of the output that can be returned by the previous script when using 6 LD-blocks of 20kb each.
