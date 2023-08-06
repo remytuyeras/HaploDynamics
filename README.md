@@ -5,6 +5,7 @@ The python library **HaploDynamics**, or **HaploDX** for short, provides a colle
 
 ## Installation
 
+### Manual installation
 ```bash
 $ git clone https://github.com/remytuyeras/HaploDynamics.git
 ```
@@ -14,6 +15,8 @@ $ ls
 HaploDynamics
 $ touch myscript.py
 ```
+### Pip
+Soom
 
 ## Quick start
 
