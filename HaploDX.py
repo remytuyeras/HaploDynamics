@@ -1,7 +1,7 @@
 import gzip
 import random
 import math
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import scipy.stats as stat
 import datetime
 
@@ -182,9 +182,9 @@ def linkage_disequilibrium(alpha,beta,gamma,strength=-1):
     return ld
   return LD
 
-I = [0.2*i for i in range(1,1000)]
-colors = ["green","red","blue"]
-parameters = [(0.17,0.45,9),(0.09,0.6,18),(0.08,0.62,19)]
+#I = [0.2*i for i in range(1,1000)]
+#colors = ["green","red","blue"]
+#parameters = [(0.17,0.45,9),(0.09,0.6,18),(0.08,0.62,19)]
 
 #q_graph, l_graph = [], []
 #for i in range(3):
