@@ -3,13 +3,13 @@ from distutils.core import setup
 setup(
   name = 'HaploDynamics',
   packages = ['HaploDynamics'],
-  version = '0.1',
+  version = 'v0.1-beta.0',
   license='gpl-3.0',
   description = 'A python library to develop genomic data simulators',
   author = 'Remy Tuyeras',
   author_email = 'rtuyeras@gmail.com',
   url = 'https://github.com/remytuyeras/HaploDynamics',
-  download_url = 'https://github.com/remytuyeras/HaploDynamics/archive/refs/tags/beta_0.1.tar.gz',
+  download_url = 'https://github.com/remytuyeras/HaploDynamics/archive/refs/tags/v0.1-beta.0.tar.gz',
   keywords = ['Simulator', 'Genomics', 'Genomic', 'Microarray','SNP chip','VCF', 'Linkage disequilibrium', 'Hardy-Weinberg equilibrium'],
   install_requires=['scipy'],
   classifiers=[
