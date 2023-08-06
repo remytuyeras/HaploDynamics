@@ -23,7 +23,7 @@ $ cd HaploDynamics/
 $ pwd
 path/from/root/to/the/downloaded/folder/HaploDynamics
 ```
-To import the modules of the library to your script, use the folloiwng syntax where you must replace ```path/from/root/to/the/downloaded/folder/HaploDynamics``` with the path that you obtained above.
+To import the modules of the library to your script, use the following syntax where you must replace ```path/from/root/to/the/downloaded/folder/HaploDynamics``` with the path that you obtained above.
 ```python
 import sys
 sys.path.insert (0,"path/from/root/to/the/downloaded/folder/HaploDynamics")
