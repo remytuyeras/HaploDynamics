@@ -6,7 +6,7 @@ The python library **HaploDynamics**, or **HaploDX** for short, provides a colle
 ## News
 
 * Adding installation procedure via ```pip```
-* Adding the module ```Framework``` for a class-based development environment
+* Adding the module ```Framework``` for a class-based development framework
 
 ## Installation
 
