@@ -16,7 +16,7 @@ HaploDynamics
 $ touch myscript.py
 ```
 ### Pip
-Soom
+Coing soon
 
 ## Quick start
 
