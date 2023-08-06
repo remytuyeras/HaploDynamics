@@ -3,43 +3,21 @@ The python library **HaploDynamics**, or **HaploDX** for short, provides a colle
 
 <div style="width: 180px; margin: 0 auto;"><a href="https://surveillance.cancer.gov/genetic-simulation-resources/"><img src="https://surveillance.cancer.gov/gsr/static/img/gsr_tile.jpg" alt="Catalogued on GSR" width="180" height="60" /></a></div>
 
-## News
-
-* Adding installation procedure via ```pip```
-* Adding the module ```Framework``` for a class-based development environment
-
 ## Installation
 
 ### Manual installation
-Download the github package using the folloiwng command.
 ```bash
 $ git clone https://github.com/remytuyeras/HaploDynamics.git
 ```
-Then, record the path where the package ```HaploDynamics``` was downloaded.
+Then, create your script where the folder ```HaploDynamics``` is located.
 ```bash
 $ ls
 HaploDynamics
-$ cd HaploDynamics/
-$ pwd
-path/from/root/to/the/downloaded/folder/HaploDynamics
+$ touch myscript.py
 ```
-To import the modules of the library to your script, use the folloiwng syntax where you must replace ```path/from/root/to/the/downloaded/folder/HaploDynamics``` with the path that you obtained above.
-```python
-import sys
-sys.path.insert (0,"path/from/root/to/the/downloaded/folder/HaploDynamics")
-import HaploDynamics.HaploDX as hdx
-import HaploDynamics.Framework as hdx_frm
-```
-### Pip [in progress]
-Install the package using ```pip install``` as follows.
-```bash
-$ pip install HaploDynamics
-```
-Then, you can import the modules of the library to your script as follows.
-```python
-import HaploDynamics.HaploDX as hdx
-import HaploDynamics.Framework as hdx_frm
-```
+### Pip
+Coming soon
+
 ## Quick start
 
 The following script generates a VCF file containing simulated diploid genotypes for a population of 1000 individuals with LD-blocks of length 20kb, 5kb, 20kb, 35kb, 30kb and 15kb. 
