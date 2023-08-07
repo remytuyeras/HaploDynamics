@@ -59,7 +59,7 @@ Parameters | Type | Values
 ```population```  | ```float``` | From 0 (for more rare mutations) to 1 (for less rare mutations)
 ```Npop```  | ```int```  | Positive integer specifying the number of individuals in the genomic matrix
 
-The generation of each locus in a VCF file tends to be linear in the parameter ```Npop```. For example, one genetic variant can take from 0.3 to 0.8 seconds to be generated/simulated when we set ```Npop=100000``` (this may vary depending on your machine). The estimated time complexity for an average machine is shown below.
+The generation of each locus in a VCF file tends to be linear in the parameter ```Npop```. On average, a genetic variant can take from 0.3 to 0.8 seconds to be generated/simulated when we set ```Npop=100000``` (this may vary depending on your machine). The estimated time complexity for an average machine is shown below.
 
 <img src="/img/time_complexity.png"/>
 
@@ -80,7 +80,7 @@ A typical output for the previous script should look as follows.
 
 <img src="/img/simulation_LD_0.png" style="width:600px;"/>
 
-The following script shows that you can control linkage disequilibrium quite easily by using sequences of small LD-blocks (typically <10kb). Since this type of generation involve higher linkage than the previous use case, one may want to also plot the relation between **distance between pairs of SNPS** and **average correlation score** by using the last output of the function ```LD_corr_matrix()``` (denoted ```dist```).
+The following script shows that you can control linkage disequilibrium quite easily by using sequences of small LD-blocks (typically <10kb). Since this type of generation involve higher linkage than the previous use case, one may also want to visualize the relation between **distance between pairs of SNPS** and **average correlation score** by using the last output of the function ```LD_corr_matrix()``` (denoted ```dist```).
 
 ```python
 import matplotlib.pyplot as plt
@@ -92,11 +92,11 @@ population=0.1
 Npop = 1000
 simulated_data = hdx.genmatrix(ld_blocks,strength,population,Npop)
 hdx.create_vcfgz("genomic-data.simulation.v1",*simulated_data)
-
+#Correlations
 rel, m, dist = hdx.LD_corr_matrix(simulated_data[0])
 plt.imshow(hdx.display(rel,m))
 plt.show()
-
+#from SNP-distance to average correlaions
 plt.plot([i for i in range(len(dist)-1)],dist[1:])
 plt.ylim([0, 1])
 plt.show()
@@ -119,11 +119,11 @@ population=0.1
 Npop = 1000
 simulated_data = hdx.genmatrix(ld_blocks,strength,population,Npop)
 hdx.create_vcfgz("genomic-data.simulation.v1",*simulated_data)
-
+#Correlations
 rel, m, dist = hdx.LD_corr_matrix(simulated_data[0])
 plt.imshow(hdx.display(rel,m))
 plt.show()
-
+#from SNP-distance to average correlaions
 plt.plot([i for i in range(len(dist)-1)],dist[1:])
 plt.ylim([0, 1])
 plt.show()
