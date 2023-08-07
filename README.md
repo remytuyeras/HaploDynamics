@@ -79,7 +79,7 @@ plt.show()
 A typical output for the previous script should look as follows.
 ![](/img/simulation_LD_0.png) 
 
-The following script shows that you can control linkage disequilibrium quite easily by using sequences of small LD-blocks (typically <10kb). Since this type of generation involve higher linkage than the previous use case, one may also want to visualize the relation between **distance between pairs of SNPS** and **average correlation score** by using the last output of the function ```LD_corr_matrix()``` (denoted ```dist```).
+The following script shows that you can control linkage disequilibrium quite easily by using sequences of small LD-blocks (typically <10kb). Here, we display the graph relating **distance between pairs of SNPS** to **average correlation score** by using the last output of the function ```LD_corr_matrix()```.
 
 ```python
 import matplotlib.pyplot as plt
@@ -127,7 +127,7 @@ plt.plot([i for i in range(len(dist)-1)],dist[1:])
 plt.ylim([0, 1])
 plt.show()
 ```
-A typical output for the previous script should look as follows.
+Typical outputs for the previous script should look as follows.
 
 Correlations            |  SNP-distance to average correlations
 :-------------------------:|:-------------------------:
