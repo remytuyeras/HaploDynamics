@@ -102,7 +102,7 @@ plt.show()
 ```
 Typical outputs for the previous script should look as follows, where the right graph shows the graph linking **distance between SNPS** and **average correlations**.
 
-Correlations            |  SNP-distance to average correlaions
+Correlations            |  SNP-distance to average correlations
 :-------------------------:|:-------------------------:
 ![](/img/simulation_LD_1.png)  |  ![](/img/simulation_dist_1.png)
 
@@ -129,7 +129,7 @@ plt.show()
 ```
 A typical output for the previous script should look as follows.
 
-Correlations            |  SNP-distance to average correlaions
+Correlations            |  SNP-distance to average correlations
 :-------------------------:|:-------------------------:
 ![](/img/simulation_LD_2.png)  |  ![](/img/simulation_dist_2.png)
 
