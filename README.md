@@ -64,7 +64,7 @@ The generation of each locus in a VCF file tends to be linear in the parameter `
 <img src="/img/time_complexity.png"/>
 
 ## Use cases
-The following script shows how to display the linkage disequilibirum correlations associated with the simulated data.
+The following script shows how to display linkage disequilibirum correlations for the simulated data.
 ```python
 import matplotlib.pyplot as plt
 import HaploDynamics.HaploDX as hdx
@@ -76,9 +76,11 @@ rel, m, _ = hdx.LD_corr_matrix(simulated_data[0])
 plt.imshow(hdx.display(rel,m))
 plt.show()
 ```
-The following plot is an example of the output that can be returned by the previous script when using 6 LD-blocks of 20kb each.
+A typical output for the previous script should look as follows.
 
 <img src="/img/simulation_LD_0.png" style="width:600px;"/>
+
+The following script shows that you can control linkage disequilibrium quite easily by using sequences of small LD-blocks (typically <10kb). Since this type of generation involve higher linkage than the previous use case, one may want to also plot the relation between **distance between pairs of SNPS** and **average correlation score** by using the last output of the function ```LD_corr_matrix()``` (denoted ```dist```).
 
 ```python
 import matplotlib.pyplot as plt
@@ -99,10 +101,13 @@ plt.plot([i for i in range(len(dist)-1)],dist[1:])
 plt.ylim([0, 1])
 plt.show()
 ```
+Typical outputs for the previous script should look as follows, where the right graph shows the graph linking **distance between SNPS** and **average correlations**.
 
-<img src="/img/simulation_LD_1.png]" width="49%" style="display:inline;">
+<img src="/img/simulation_LD_1.png" width="49%" style="display:inline;">
 <div style="display:inline;width:5px;"></div>
 <img src="/img/simulation_dist_1.png" width="49%" style="display:inline;">
+
+Finally, the following script shows how you can generate large regions of linkage.
 
 ```python
 import matplotlib.pyplot as plt
@@ -123,7 +128,9 @@ plt.plot([i for i in range(len(dist)-1)],dist[1:])
 plt.ylim([0, 1])
 plt.show()
 ```
-<img src="/img/simulation_LD_2.png]" width="49%" style="display:inline;">
+A typical output for the previous script should look as follows.
+
+<img src="/img/simulation_LD_2.png" width="49%" style="display:inline;">
 <div style="display:inline;width:5px;"></div>
 <img src="/img/simulation_dist_2.png" width="49%" style="display:inline;">
 
