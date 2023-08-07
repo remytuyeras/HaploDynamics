@@ -101,6 +101,7 @@ plt.show()
 ```
 <img src="/img/simulation_LD_1.png" style="width:600px;"/>
 <img src="/img/simulation_dist_1.png" style="width:600px;"/>
+
 ```python
 import matplotlib.pyplot as plt
 import HaploDynamics.HaploDX as hdx
