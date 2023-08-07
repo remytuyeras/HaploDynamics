@@ -3,10 +3,10 @@ The python library **HaploDynamics**, or **HaploDX** for short, provides a colle
 
 <div style="width: 180px; margin: 0 auto;"><a href="https://surveillance.cancer.gov/genetic-simulation-resources/"><img src="https://surveillance.cancer.gov/gsr/static/img/gsr_tile.jpg" alt="Catalogued on GSR" width="180" height="60" /></a></div>
 
-## News
+## New features recently added
 
-* Adding installation procedure via ```pip```
-* Adding the module ```Framework``` for a class-based development framework
+* Installation procedure via ```pip``` added
+* Module ```Framework``` added. This module will serve asa class-based library for development purposes
 
 ## Installation
 
@@ -21,16 +21,16 @@ $ ls
 HaploDynamics
 $ cd HaploDynamics/
 $ pwd
-path/to/main/module/HaploDynamics
+absolute/path/to/HaploDynamics
 ```
-To import the modules of the library to your script, use the following syntax where you must replace ```path/to/main/module/HaploDynamics``` with the path that you obtained above.
+To import the modules of the library to your script, use the following syntax where you must replace ```absolute/path/to/HaploDynamics``` with the path that you obtained above.
 ```python
 import sys
-sys.path.insert (0,"path/to/main/module/HaploDynamics")
+sys.path.insert (0,"absolute/path/to/HaploDynamics")
 import HaploDynamics.HaploDX as hdx
 import HaploDynamics.Framework as hdx_frm
 ```
-### Pip [still in progress]
+### Installation via Pip
 Install the package using ```pip install``` as follows.
 ```bash
 $ pip install HaploDynamics
@@ -59,16 +59,17 @@ Parameters | Type | Values
 ```population```  | ```float``` | From 0 (for more rare mutations) to 1 (for less rare mutations)
 ```Npop```  | ```int```  | Positive integer specifying the number of individuals in the genomic matrix
 
-The generation of each locus in a VCF file tend to be linear in the parameter ```Npop```. For example, one genetic variant can take from 0.3 to 0.8 seconds to be generated/simulated when we set ```Npop=100000``` (this may vary depending on your machine). The estimated time complexity for an average machine is shown below.
+The generation of each locus in a VCF file tends to be linear in the parameter ```Npop```. For example, one genetic variant can take from 0.3 to 0.8 seconds to be generated/simulated when we set ```Npop=100000``` (this may vary depending on your machine). The estimated time complexity for an average machine is shown below.
 
 ![GitHub Logo](/time_complexity.png)
 
+## Use cases
 The following script shows how to display the linkage disequilibirum correlations associated with the simulated data.
 ```python
 import matplotlib.pyplot as plt
 import HaploDynamics.HaploDX as hdx
 
-simulated_data = hdx.genmatrix([20,5,20,35,30,15],strength=1,population=0.1,Npop=1000)
+simulated_data = hdx.genmatrix([20,20,20,20,20,20],strength=1,population=0.1,Npop=1000)
 hdx.create_vcfgz("genomic-data.simulation.v1",*simulated_data)
 
 rel, m, _ = hdx.LD_corr_matrix(simulated_data[0])
@@ -77,10 +78,52 @@ plt.show()
 ```
 The following plot is an example of the output that can be returned by the previous script when using 6 LD-blocks of 20kb each.
 
-![alt text](http://www.normalesup.org/~tuyeras/node_diss/blg/blg_stat/img/LD_block_corr_strength_high.png)
+<img src="img/simulation_LD_0.png" style="width:200px;"/>
 
+```python
+import matplotlib.pyplot as plt
+import HaploDynamics.HaploDX as hdx
 
-## HaploDX Functions
+ld_blocks = [5,5,5,10,20,5,5,5,5,5,5,1,1,1,2,2,10,20,40]
+strength=1
+population=0.1
+Npop = 1000
+simulated_data = hdx.genmatrix(ld_blocks,strength,population,Npop)
+hdx.create_vcfgz("genomic-data.simulation.v1",*simulated_data)
+
+rel, m, dist = hdx.LD_corr_matrix(simulated_data[0])
+plt.imshow(hdx.display(rel,m))
+plt.show()
+
+plt.plot([i for i in range(len(dist)-1)],dist[1:])
+plt.ylim([0, 1])
+plt.show()
+```
+<img src="img/simulation_LD_1.png" style="width:200px;"/>
+<img src="img/simulation_dist_1.png" style="width:200px;"/>
+```python
+import matplotlib.pyplot as plt
+import HaploDynamics.HaploDX as hdx
+
+ld_blocks = [1] * 250
+strength=1
+population=0.1
+Npop = 1000
+simulated_data = hdx.genmatrix(ld_blocks,strength,population,Npop)
+hdx.create_vcfgz("genomic-data.simulation.v1",*simulated_data)
+
+rel, m, dist = hdx.LD_corr_matrix(simulated_data[0])
+plt.imshow(hdx.display(rel,m))
+plt.show()
+
+plt.plot([i for i in range(len(dist)-1)],dist[1:])
+plt.ylim([0, 1])
+plt.show()
+```
+<img src="img/simulation_LD_2.png" style="width:200px;"/>
+<img src="img/simulation_dist_2.png" style="width:200px;"/>
+
+## Functions from the HaploDX module
 
 You can find a complete presentation (or in fact a thorough tutorial) of the **HaploDX** library on my personal webpage (<a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">here</a>). Below is the list of all functions accessible from the library. It is recommended to first experiment with the functions presented in the [Data Generation](#data-generation) section.
 
