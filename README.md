@@ -15,7 +15,7 @@ Download the github package by using the following command in a terminal.
 ```bash
 $ git clone https://github.com/remytuyeras/HaploDynamics.git
 ```
-Then, from your current directory, record the absolute path leading to the main module of the package, as shown below.
+Then, from your current directory, record the absolute path leading to the downloaded package, as shown below.
 ```bash
 $ ls
 HaploDynamics
@@ -23,7 +23,7 @@ $ cd HaploDynamics/
 $ pwd
 absolute/path/to/HaploDynamics
 ```
-To import the modules of the library to your script, use the following syntax where you must replace ```absolute/path/to/HaploDynamics``` with the path that you obtained above.
+To import the modules of the library to your script, use the following syntax where you need replace ```absolute/path/to/HaploDynamics``` with the path that you obtained above.
 ```python
 import sys
 sys.path.insert (0,"absolute/path/to/HaploDynamics")
