@@ -5,8 +5,8 @@ The python library **HaploDynamics**, or **HaploDX** for short, provides a colle
 
 ## New features recently added
 
-* Installation procedure via ```pip``` added
-* Module ```Framework``` added. This module will serve asa class-based library for development purposes
+* Installation via ```pip``` added
+* Module ```Framework``` added. This module will serve a sa class-based library for development purposes
 
 ## Installation
 
@@ -99,8 +99,10 @@ plt.plot([i for i in range(len(dist)-1)],dist[1:])
 plt.ylim([0, 1])
 plt.show()
 ```
-<img src="/img/simulation_LD_1.png" style="width:600px;"/>
-<img src="/img/simulation_dist_1.png" style="width:600px;"/>
+
+<img src="/img/simulation_LD_1.png]" width="49%" style="display:inline;">
+<div style="display:inline;width:5px;"></div>
+<img src="/img/simulation_dist_1.png" width="49%" style="display:inline;">
 
 ```python
 import matplotlib.pyplot as plt
@@ -121,8 +123,9 @@ plt.plot([i for i in range(len(dist)-1)],dist[1:])
 plt.ylim([0, 1])
 plt.show()
 ```
-<img src="/img/simulation_LD_2.png" style="width:600px;"/>
-<img src="/img/simulation_dist_2.png" style="width:600px;"/>
+<img src="/img/simulation_LD_2.png]" width="49%" style="display:inline;">
+<div style="display:inline;width:5px;"></div>
+<img src="/img/simulation_dist_2.png" width="49%" style="display:inline;">
 
 ## Functions from the HaploDX module
 
