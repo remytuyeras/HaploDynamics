@@ -30,7 +30,7 @@ sys.path.insert (0,"absolute/path/to/HaploDynamics")
 import HaploDynamics.HaploDX as hdx
 import HaploDynamics.Framework as hdx_frm
 ```
-### Installation via Pip
+### Installation via ```pip```
 Install the package by using ```pip install``` as follows.
 ```bash
 $ pip install HaploDynamics
