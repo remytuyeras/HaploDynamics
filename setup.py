@@ -5,8 +5,8 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
   name = 'HaploDynamics',
-  packages=setuptools.find_packages(include=['HaploDX','Framework']),
-  version = 'v0.1-beta.4',
+  packages=setuptools.find_packages(include=['HaploDynamics']),
+  version = 'v0.1-beta.5',
   license='gpl-3.0',
   author = 'Remy Tuyeras',
   author_email = 'rtuyeras@gmail.com',
@@ -14,7 +14,7 @@ setuptools.setup(
   long_description = long_description,
   long_description_content_type = "text/markdown",
   url = 'https://github.com/remytuyeras/HaploDynamics',
-  download_url = 'https://github.com/remytuyeras/HaploDynamics/archive/refs/tags/v0.1-beta.4.tar.gz',
+  download_url = 'https://github.com/remytuyeras/HaploDynamics/archive/refs/tags/v0.1-beta.5.tar.gz',
   keywords = ['Simulator', 'Genomics', 'Genomic', 'Microarray','SNP chip','VCF', 'Linkage disequilibrium', 'Hardy-Weinberg equilibrium'],
   install_requires=['scipy'],
   classifiers=[
