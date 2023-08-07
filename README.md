@@ -6,7 +6,7 @@ The python library **HaploDynamics**, or **HaploDX** for short, provides a colle
 ## New features recently added
 
 * Installation via ```pip```;
-* Module ```Framework``` -- this module will serve as a class-based library for development and experimentation purposes.
+* Module ```Framework```. This module will serve as a class-based library for development and experimentation purposes.
 
 ## Installation
 
