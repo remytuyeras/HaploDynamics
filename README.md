@@ -11,7 +11,7 @@ The python library **HaploDynamics**, or **HaploDX** for short, provides a colle
 ## Installation
 
 ### Manual installation
-Download the github package using the following command.
+Download the github package by using the following command in a terminal.
 ```bash
 $ git clone https://github.com/remytuyeras/HaploDynamics.git
 ```
@@ -31,7 +31,7 @@ import HaploDynamics.HaploDX as hdx
 import HaploDynamics.Framework as hdx_frm
 ```
 ### Installation via Pip
-Install the package using ```pip install``` as follows.
+Install the package by using ```pip install``` as follows.
 ```bash
 $ pip install HaploDynamics
 ```
