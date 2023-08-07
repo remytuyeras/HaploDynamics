@@ -91,16 +91,18 @@ population=0.1
 Npop = 1000
 simulated_data = hdx.genmatrix(ld_blocks,strength,population,Npop)
 hdx.create_vcfgz("genomic-data.simulation.v1",*simulated_data)
+
 #Correlations
 rel, m, dist = hdx.LD_corr_matrix(simulated_data[0])
 plt.imshow(hdx.display(rel,m))
 plt.show()
+
 #from SNP-distance to average correlaions
 plt.plot([i for i in range(len(dist)-1)],dist[1:])
 plt.ylim([0, 1])
 plt.show()
 ```
-Typical outputs for the previous script should look as follows, where the right graph shows the graph linking **distance between SNPS** and **average correlations**.
+Typical outputs for the previous script should look as follows.
 
 Correlations            |  SNP-distance to average correlations
 :-------------------------:|:-------------------------:
@@ -118,10 +120,12 @@ population=0.1
 Npop = 1000
 simulated_data = hdx.genmatrix(ld_blocks,strength,population,Npop)
 hdx.create_vcfgz("genomic-data.simulation.v1",*simulated_data)
+
 #Correlations
 rel, m, dist = hdx.LD_corr_matrix(simulated_data[0])
 plt.imshow(hdx.display(rel,m))
 plt.show()
+
 #from SNP-distance to average correlaions
 plt.plot([i for i in range(len(dist)-1)],dist[1:])
 plt.ylim([0, 1])
