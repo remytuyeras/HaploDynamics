@@ -61,7 +61,7 @@ Parameters | Type | Values
 
 The generation of each locus in a VCF file tends to be linear in the parameter ```Npop```. On average, a genetic variant can take from 0.3 to 0.8 seconds to be generated/simulated when ```Npop=100000``` (this may vary depending on your machine). The estimated time complexity for an average machine is shown below.
 
-<img src="/img/time_complexity.png"/>
+![](/img/time_complexity.png) 
 
 ## Use cases
 The following script shows how to display linkage disequilibirum correlations for the simulated data.
@@ -77,8 +77,7 @@ plt.imshow(hdx.display(rel,m))
 plt.show()
 ```
 A typical output for the previous script should look as follows.
-
-<img src="/img/simulation_LD_0.png" style="width:600px;"/>
+![](/img/simulation_LD_0.png) 
 
 The following script shows that you can control linkage disequilibrium quite easily by using sequences of small LD-blocks (typically <10kb). Since this type of generation involve higher linkage than the previous use case, one may also want to visualize the relation between **distance between pairs of SNPS** and **average correlation score** by using the last output of the function ```LD_corr_matrix()``` (denoted ```dist```).
 
@@ -103,9 +102,9 @@ plt.show()
 ```
 Typical outputs for the previous script should look as follows, where the right graph shows the graph linking **distance between SNPS** and **average correlations**.
 
-<img src="/img/simulation_LD_1.png" width="45%" style="display:inline;">
-<div style="display:inline;width:5px;"></div>
-<img src="/img/simulation_dist_1.png" width="45%" style="display:inline;">
+Correlations            |  SNP-distance to average correlaions
+:-------------------------:|:-------------------------:
+![](/img/simulation_LD_1.png)  |  ![](/img/simulation_dist_1.png)
 
 Finally, the following script shows how you can generate large regions of linkage.
 
@@ -130,9 +129,9 @@ plt.show()
 ```
 A typical output for the previous script should look as follows.
 
-<img src="/img/simulation_LD_2.png" width="45%" style="display:inline;">
-<div style="display:inline;width:5px;"></div>
-<img src="/img/simulation_dist_2.png" width="45%" style="display:inline;">
+Correlations            |  SNP-distance to average correlaions
+:-------------------------:|:-------------------------:
+![](/img/simulation_LD_2.png)  |  ![](/img/simulation_dist_2.png)
 
 ## Functions from the HaploDX module
 
