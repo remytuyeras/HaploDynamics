@@ -3,7 +3,7 @@ The python library **HaploDynamics**, or **HaploDX** for short, provides a colle
 
 <div style="width: 180px; margin: 0 auto;"><a href="https://surveillance.cancer.gov/genetic-simulation-resources/"><img src="https://surveillance.cancer.gov/gsr/static/img/gsr_tile.jpg" alt="Catalogued on GSR" width="180" height="60" /></a></div>
 
-## New features recently added
+## New features added
 
 * Installation via ```pip```;
 * A class-based module ```Framework``` for software development and experimentations.
@@ -61,7 +61,7 @@ Parameters | Type | Values
 
 The generation of each locus in a VCF file tends to be linear in the parameter ```Npop```. On average, a genetic variant can take from 0.3 to 0.8 seconds to be generated when ```Npop=100000``` (this may vary depending on your machine). The estimated time complexity for an average machine is shown below.
 
-![](/img/time_complexity.png) 
+![](img/time_complexity.png) 
 
 ## Use cases
 The following script shows how to display linkage disequilibirum correlations for the simulated data.
@@ -77,9 +77,10 @@ plt.imshow(hdx.display(rel,m))
 plt.show()
 ```
 A typical output for the previous script should look as follows.
-![](/img/simulation_LD_0.png) 
 
-The following script shows how you can control linkage disequilibrium by using LD-blocks of varying legnths. You can display the graph relating distances between pairs of SNPS to average correlation scores by using the last output of the function ```LD_corr_matrix()```.
+![](img/simulation_LD_0.png) 
+
+The following script shows how you can control linkage disequilibrium by using LD-blocks of varying legnths. You can display the graph relating distances between pairs of SNPs to average correlation scores by using the last output of the function ```LD_corr_matrix()```.
 
 ```python
 import matplotlib.pyplot as plt
@@ -106,7 +107,7 @@ Typical outputs for the previous script should look as follows.
 
 Correlations            |  SNP-distance to average correlations
 :-------------------------:|:-------------------------:
-![](/img/simulation_LD_1.png)  |  ![](/img/simulation_dist_1.png)
+![](img/simulation_LD_1.png)  |  ![](img/simulation_dist_1.png)
 
 Finally, the following script shows how you can generate large regions of linkage.
 
@@ -135,7 +136,7 @@ Typical outputs for the previous script should look as follows.
 
 Correlations            |  SNP-distance to average correlations
 :-------------------------:|:-------------------------:
-![](/img/simulation_LD_2.png)  |  ![](/img/simulation_dist_2.png)
+![](img/simulation_LD_2.png)  |  ![](img/simulation_dist_2.png)
 
 ## Functions from HaploDX
 
