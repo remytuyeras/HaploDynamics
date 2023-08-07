@@ -5,8 +5,8 @@ The python library **HaploDynamics**, or **HaploDX** for short, provides a colle
 
 ## New features recently added
 
-* Installation via ```pip``` added
-* Module ```Framework``` added. This module will serve as a class-based library for development purposes
+* Installation via ```pip```;
+* Module ```Framework```: this module will serve as a class-based library for development and experimentation purposes.
 
 ## Installation
 
@@ -135,7 +135,7 @@ Correlations            |  SNP-distance to average correlations
 
 ## Functions from the HaploDX module
 
-You can find a complete presentation (or in fact a thorough tutorial) of the **HaploDX** library on my personal webpage (<a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">here</a>). Below is the list of all functions accessible from the library. It is recommended to first experiment with the functions presented in the [Data Generation](#data-generation) section.
+You can find a complete presentation (or in fact a thorough tutorial) of the **HaploDX** module on my personal webpage (<a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">here</a>). Below is the list of all functions accessible from the library. It is recommended to first experiment with the functions presented in the [Data Generation](#data-generation) section.
 
 ### Population and Allele Frequency Spectrum Modeling
 
