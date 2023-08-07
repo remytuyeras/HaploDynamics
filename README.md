@@ -61,7 +61,7 @@ Parameters | Type | Values
 
 The generation of each locus in a VCF file tends to be linear in the parameter ```Npop```. For example, one genetic variant can take from 0.3 to 0.8 seconds to be generated/simulated when we set ```Npop=100000``` (this may vary depending on your machine). The estimated time complexity for an average machine is shown below.
 
-![GitHub Logo](/time_complexity.png)
+<img src="/img/time_complexity.png" style="width:200px;"/>
 
 ## Use cases
 The following script shows how to display the linkage disequilibirum correlations associated with the simulated data.
@@ -78,7 +78,7 @@ plt.show()
 ```
 The following plot is an example of the output that can be returned by the previous script when using 6 LD-blocks of 20kb each.
 
-<img src="img/simulation_LD_0.png" style="width:200px;"/>
+<img src="/img/simulation_LD_0.png" style="width:200px;"/>
 
 ```python
 import matplotlib.pyplot as plt
@@ -99,8 +99,8 @@ plt.plot([i for i in range(len(dist)-1)],dist[1:])
 plt.ylim([0, 1])
 plt.show()
 ```
-<img src="img/simulation_LD_1.png" style="width:200px;"/>
-<img src="img/simulation_dist_1.png" style="width:200px;"/>
+<img src="/img/simulation_LD_1.png" style="width:200px;"/>
+<img src="/img/simulation_dist_1.png" style="width:200px;"/>
 ```python
 import matplotlib.pyplot as plt
 import HaploDynamics.HaploDX as hdx
@@ -120,8 +120,8 @@ plt.plot([i for i in range(len(dist)-1)],dist[1:])
 plt.ylim([0, 1])
 plt.show()
 ```
-<img src="img/simulation_LD_2.png" style="width:200px;"/>
-<img src="img/simulation_dist_2.png" style="width:200px;"/>
+<img src="/img/simulation_LD_2.png" style="width:200px;"/>
+<img src="/img/simulation_dist_2.png" style="width:200px;"/>
 
 ## Functions from the HaploDX module
 
