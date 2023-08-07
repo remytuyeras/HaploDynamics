@@ -103,9 +103,9 @@ plt.show()
 ```
 Typical outputs for the previous script should look as follows, where the right graph shows the graph linking **distance between SNPS** and **average correlations**.
 
-<img src="/img/simulation_LD_1.png" width="49%" style="display:inline;">
+<img src="/img/simulation_LD_1.png" width="45%" style="display:inline;">
 <div style="display:inline;width:5px;"></div>
-<img src="/img/simulation_dist_1.png" width="49%" style="display:inline;">
+<img src="/img/simulation_dist_1.png" width="45%" style="display:inline;">
 
 Finally, the following script shows how you can generate large regions of linkage.
 
@@ -130,9 +130,9 @@ plt.show()
 ```
 A typical output for the previous script should look as follows.
 
-<img src="/img/simulation_LD_2.png" width="49%" style="display:inline;">
+<img src="/img/simulation_LD_2.png" width="45%" style="display:inline;">
 <div style="display:inline;width:5px;"></div>
-<img src="/img/simulation_dist_2.png" width="49%" style="display:inline;">
+<img src="/img/simulation_dist_2.png" width="45%" style="display:inline;">
 
 ## Functions from the HaploDX module
 
