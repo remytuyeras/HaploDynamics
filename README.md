@@ -6,7 +6,7 @@ The python library **HaploDynamics**, or **HaploDX** for short, provides a colle
 ## New features recently added
 
 * Installation via ```pip```;
-* Module ```Framework```. This module will serve as a class-based library for development and experimentation purposes.
+* A class-based module ```Framework``` for software development and experimentations.
 
 ## Installation
 
@@ -137,7 +137,7 @@ Correlations            |  SNP-distance to average correlations
 :-------------------------:|:-------------------------:
 ![](/img/simulation_LD_2.png)  |  ![](/img/simulation_dist_2.png)
 
-## Functions from the HaploDX module
+## Functions from HaploDX
 
 You can find a complete presentation (or in fact a thorough tutorial) of the **HaploDX** module on my personal webpage (<a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">here</a>). Below is the list of all functions accessible from the library. It is recommended to first experiment with the functions presented in the [Data Generation](#data-generation) section.
 
@@ -252,3 +252,7 @@ def display(rel: list[list],m: float) -> list[list[tuple[float,float,float]]]
 ```python
 def minor_haplotype(sub_pre_matrix: list[list]) -> float
 ```
+
+## Classes from Framework
+
+To be added.
