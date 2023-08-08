@@ -10,7 +10,7 @@ Tuyeras, R. (2023). _HaploDynamics: A python library to develop genomic data sim
 ## New features added
 
 * Installation via ```pip```;
-* A class-based module ```Framework``` for software development and experimentations (potential additions could include classes to generate datasets varied populations).
+* A class-based module ```Framework``` for software development and experimentations (potential additions could include classes to generate datasets of varied populations).
 
 ## Installation
 
