@@ -1,7 +1,11 @@
-# HaploDynamics
+# HaploDynamics 
 The python library **HaploDynamics**, or **HaploDX** for short, provides a collection of functions that can be used to simulate population-specific genomic data. This package is part of the Genetic Simulator Resources (GSR) catalog (click the link below for more information).
 
 <div style="width: 180px; margin: 0 auto;"><a href="https://surveillance.cancer.gov/genetic-simulation-resources/"><img src="https://surveillance.cancer.gov/gsr/static/img/gsr_tile.jpg" alt="Catalogued on GSR" width="180" height="60" /></a></div>
+
+## To cite this work
+
+Tuyeras, R. (2023). HaploDynamics: A python library to develop genomic data simulators (Version 0.2-beta.1) [![DOI](https://zenodo.org/badge/609227235.svg)](https://zenodo.org/badge/latestdoi/609227235)
 
 ## New features added
 
@@ -11,11 +15,15 @@ The python library **HaploDynamics**, or **HaploDX** for short, provides a colle
 ## Installation
 
 ### Manual installation
-Download the github package by using the following command in a terminal.
+HaploDynamics is a Python 3+ library that uses the [SciPy](https://docs.scipy.org/doc/scipy/reference/stats.html) library for certain statistical computations. To install SciPy, run the following command, or see SciPy's [installation instructions](https://scipy.org/install/) for more options.
+```bash
+$ python -m pip install scipy
+```
+Then, you can install the HaploDynamics GitHub package by using the following command in a terminal:
 ```bash
 $ git clone https://github.com/remytuyeras/HaploDynamics.git
 ```
-Then, from your current directory, record the absolute path leading to the downloaded package, as shown below.
+After this, use the ```pwd``` command in a terminal to get the absolute path leading to the downloaded package.
 ```bash
 $ ls
 HaploDynamics
@@ -23,7 +31,7 @@ $ cd HaploDynamics/
 $ pwd
 absolute/path/to/HaploDynamics
 ```
-To import the modules of the library to your script, use the following syntax where you need replace ```absolute/path/to/HaploDynamics``` with the path that you obtained above.
+To import the modules of the library to your script, you can use the following syntax where you need to replace ```absolute/path/to/HaploDynamics``` with the path obtained earlier.
 ```python
 import sys
 sys.path.insert (0,"absolute/path/to/HaploDynamics")
