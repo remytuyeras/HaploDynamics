@@ -1,5 +1,5 @@
 # HaploDynamics 
-The python library **HaploDynamics**, or **HaploDX** for short, provides a collection of functions that can be used to simulate population-specific genomic data. This package is part of the Genetic Simulator Resources (GSR) catalog (click the link below for more information).
+The Python3+ library **HaploDynamics**, or **HaploDX** for short, provides a collection of functions that can be used to simulate population-specific genomic data. This package is part of the Genetic Simulator Resources (GSR) catalog (click the link below for more information).
 
 <div style="width: 180px; margin: 0 auto;"><a href="https://surveillance.cancer.gov/genetic-simulation-resources/"><img src="https://surveillance.cancer.gov/gsr/static/img/gsr_tile.jpg" alt="Catalogued on GSR" width="180" height="60" /></a></div>
 
@@ -15,7 +15,7 @@ Tuyeras, R. (2023). _HaploDynamics: A python library to develop genomic data sim
 ## Installation
 
 ### Manual installation
-HaploDynamics is a Python 3+ package that uses the [SciPy](https://docs.scipy.org/doc/scipy/reference/stats.html) library for certain statistical computations. To install SciPy, run the following command, or see SciPy's [installation instructions](https://scipy.org/install/) for more options.
+HaploDynamics uses the [SciPy](https://docs.scipy.org/doc/scipy/reference/stats.html) library for certain statistical computations. To install SciPy, run the following command, or see SciPy's [installation instructions](https://scipy.org/install/) for more options.
 ```bash
 $ python -m pip install scipy
 ```
