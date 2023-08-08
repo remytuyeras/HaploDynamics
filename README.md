@@ -3,10 +3,6 @@ The Python3+ library **HaploDynamics**, or **HaploDX** for short, provides a col
 
 <div style="width: 180px; margin: 0 auto;"><a href="https://surveillance.cancer.gov/genetic-simulation-resources/"><img src="https://surveillance.cancer.gov/gsr/static/img/gsr_tile.jpg" alt="Catalogued on GSR" width="180" height="60" /></a></div>
 
-## To cite this work
-
-Tuyeras, R. (2023). _HaploDynamics: A python library to develop genomic data simulators_ (Version 0.2-beta.2) [Computer software]. [![DOI](https://zenodo.org/badge/609227235.svg)](https://zenodo.org/badge/latestdoi/609227235)
-
 ## New features added
 
 * Installation via ```pip```;
@@ -145,6 +141,10 @@ Typical outputs for the previous script should look as follows.
 Correlations            |  SNP-distance to average correlations
 :-------------------------:|:-------------------------:
 ![](img/simulation_LD_2.png)  |  ![](img/simulation_dist_2.png)
+
+## To cite this work
+
+Tuyeras, R. (2023). _HaploDynamics: A python library to develop genomic data simulators_ (Version 0.2-beta.2) [Computer software]. [![DOI](https://zenodo.org/badge/609227235.svg)](https://zenodo.org/badge/latestdoi/609227235)
 
 ## Functions from HaploDX
 
