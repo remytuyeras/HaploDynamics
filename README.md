@@ -17,7 +17,7 @@ Tuyeras, R. (2023). _HaploDynamics: A python library to develop genomic data sim
 ## Installation
 
 ### Manual installation
-HaploDynamics is a Python 3+ library that uses the [SciPy](https://docs.scipy.org/doc/scipy/reference/stats.html) library for certain statistical computations. To install SciPy, run the following command, or see SciPy's [installation instructions](https://scipy.org/install/) for more options.
+HaploDynamics is a Python 3+ package that uses the [SciPy](https://docs.scipy.org/doc/scipy/reference/stats.html) library for certain statistical computations. To install SciPy, run the following command, or see SciPy's [installation instructions](https://scipy.org/install/) for more options.
 ```bash
 $ python -m pip install scipy
 ```
