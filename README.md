@@ -10,7 +10,7 @@ Tuyeras, R. (2023). _HaploDynamics: A python library to develop genomic data sim
 ## New features added
 
 * Installation via ```pip```;
-* A class-based module ```Framework``` for software development and experimentations.
+* A class-based module ```Framework``` for software development and experimentations (potential additions could include classes to generate datasets varied populations).
 
 ## Installation
 
@@ -48,7 +48,7 @@ Then, you can import the modules of the library to your script as follows.
 import HaploDynamics.HaploDX as hdx
 import HaploDynamics.Framework as hdx_frm
 ```
-## Quick start
+## Quickstart
 
 The following script generates a VCF file containing simulated diploid genotypes for a population of 1000 individuals with LD-blocks of length 20kb, 5kb, 20kb, 35kb, 30kb and 15kb. 
 ```python
