@@ -5,7 +5,7 @@ authors:
   given-names: "Remy"
   orcid: "https://orcid.org/0000-0002-5032-4113"
 title: "HaploDynamics: A python library to develop genomic data simulators"
-version: 0.2-beta.1
+version: 0.2-beta.2
 doi: 10.5281/zenodo.8475
 date-released: 2023-08-08
 url: "https://github.com/remytuyeras/HaploDynamics"
