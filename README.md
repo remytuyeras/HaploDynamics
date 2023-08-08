@@ -3,9 +3,11 @@ The python library **HaploDynamics**, or **HaploDX** for short, provides a colle
 
 <div style="width: 180px; margin: 0 auto;"><a href="https://surveillance.cancer.gov/genetic-simulation-resources/"><img src="https://surveillance.cancer.gov/gsr/static/img/gsr_tile.jpg" alt="Catalogued on GSR" width="180" height="60" /></a></div>
 
-## To cite this work [![DOI](https://zenodo.org/badge/609227235.svg)](https://zenodo.org/badge/latestdoi/609227235)
+## To cite this work
 
 Tuyeras, R. (2023). _HaploDynamics: A python library to develop genomic data simulators_ (Version 0.2-beta.2) [Computer software]. https://doi.org/10.5281/zenodo.8223213
+
+[![DOI](https://zenodo.org/badge/609227235.svg)](https://zenodo.org/badge/latestdoi/609227235)
 
 ## New features added
 
