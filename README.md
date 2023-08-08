@@ -19,11 +19,11 @@ HaploDynamics is a Python 3+ package that uses the [SciPy](https://docs.scipy.or
 ```bash
 $ python -m pip install scipy
 ```
-Then, you can install the HaploDynamics GitHub package by using the following command in a terminal:
+You can install the HaploDynamics GitHub package by using the following command in a terminal.
 ```bash
 $ git clone https://github.com/remytuyeras/HaploDynamics.git
 ```
-After this, use the ```pwd``` command in a terminal to get the absolute path leading to the downloaded package.
+Then, use the ```pwd``` command to get the absolute path leading to the downloaded package.
 ```bash
 $ ls
 HaploDynamics
@@ -31,7 +31,7 @@ $ cd HaploDynamics/
 $ pwd
 absolute/path/to/HaploDynamics
 ```
-To import the modules of the library to your script, you can use the following syntax where you need to replace ```absolute/path/to/HaploDynamics``` with the path obtained earlier.
+To import the modules of the library to your script, you can use the following syntax where the path ```absolute/path/to/HaploDynamics``` should be replaced with the path obtained earlier.
 ```python
 import sys
 sys.path.insert (0,"absolute/path/to/HaploDynamics")
