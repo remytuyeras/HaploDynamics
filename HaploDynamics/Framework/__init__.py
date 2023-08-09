@@ -1,1 +1,1 @@
-from .future import *
+from .multiproc import *
