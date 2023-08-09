@@ -2,12 +2,12 @@
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
-author = 'Graziella'
+project = 'HaploDynamics'
+copyright = '2023, Remy Tuyeras'
+author = 'Remy Tuyeras'
 
-release = '0.1'
-version = '0.1.0'
+release = '0.2-beta.4'
+version = '0.2-beta.4'
 
 # -- General configuration
 
