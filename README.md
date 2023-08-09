@@ -147,7 +147,7 @@ Correlations            |  SNP-distance to average correlations
 
 ## To cite this work
 
-Tuyeras, R. (2023). _HaploDynamics: A python library to develop genomic data simulators_ (Version 0.2-beta.3) [Computer software]. [![DOI](https://zenodo.org/badge/609227235.svg)](https://zenodo.org/badge/latestdoi/609227235)
+Tuyeras, R. (2023). _HaploDynamics: A python library to develop genomic data simulators_ (Version 0.2-beta.4) [Computer software]. [![DOI](https://zenodo.org/badge/609227235.svg)](https://zenodo.org/badge/latestdoi/609227235)
 
 <br/>
 
