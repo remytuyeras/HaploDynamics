@@ -1,3 +1,4 @@
+from HaploDynamics.utils.load import Loading
 import gzip
 import random
 import math
@@ -67,12 +68,12 @@ def genotype(hwp,minor):
   for i in range(4):
     #We sample an element from the Hardy-Weinberg distribution
     if hwp[i] <= t < hwp[i+1]:
-      genotype_code = minor*(i==0) + 1*(i==1) - 1*(i==2) + (2-minor)*(i==3)
-      minor_counts = 2 - int((i+1)/2)
-      return minor_counts, genotype_code
+      sign = 1-minor
+      genotype_code = minor*(i==0) + sign*(i==1) - sign*(i==2) + (2-minor)*(i==3)
+      return minor, genotype_code
 
-#For reference, this function maps the homogeneous genotypes of two copies of a major allele to 0
-gref= lambda g: g[0] if g[0] in [2,0] else g[1]
+#For reference, this function maps the homogeneous genotypes consisting of two major alleles to 0
+gref= lambda g: g[1] if g[0] == 2 else (2-g[1])*(g[1] in [0,2]) - g[1]*(g[1] in [1,-1])
 
 #alpha_mut = population_mut(0.5)
 #sch = genotype_schema(alpha_mut)
@@ -209,10 +210,10 @@ def cond_genotype_schema(previous_maf,distance,alpha,beta,gamma,strength=-1):
   ld, maf = linkage_disequilibrium(alpha,beta,gamma,strength)(previous_maf)(distance)
   while maf > 0.5:
     ld, maf = linkage_disequilibrium(alpha,beta,gamma,strength)(previous_maf)(distance)
-  #Here, the distribution for the HWP is a parametrized distribution
+  #Conditional Hardy-Weinberg principle encoded as a function
   def hwp(previous_genotype):
     #Previous genotype has minor alleles
-    if previous_genotype[0] == 2:
+    if previous_genotype == 2:
       #Probability for minor homogeneous genotypes
       hom = (ld**2) * (maf**2)
       #Probability for heterogeneous genotypes
@@ -220,20 +221,20 @@ def cond_genotype_schema(previous_maf,distance,alpha,beta,gamma,strength=-1):
       #Interval decomposition simulating the conditional Hardy-Weinberg principle
       return [0, hom, hom+het,hom+2*het, 1]
     #Previous genotype has one minor allele
-    if previous_genotype[0] == 1:
+    if abs(previous_genotype) == 1:
       #Probability for minor homogeneous genotypes
       hom = ld * ref_alt_function(previous_maf,ld) * (maf**2)
       #Probability for heterogeneous genotypes
       het1 = ld * alt_alt_function(previous_maf,maf,ld) * maf * (1-maf)
       het2 = ref_alt_function(previous_maf,ld) * ref_alt_function(maf,ld) * maf * (1-maf)
-      #Interval decomposition simulating the conditional Hardy-Weinberg principle
-      #Note: the phasing of the previous genotypes is important
-      if previous_genotype[1] == 1:
+      #Previous genotype consists of a minor-major pairing
+      if previous_genotype == -1:
         return [0, hom, hom+het1,hom+het1+het2, 1]
-      elif previous_genotype[1] == -1:
+      #Previous genotype consists of a major-minor pairing
+      elif previous_genotype == 1:
         return [0, hom, hom+het2,hom+het2+het1, 1]
     #Previous genotype has no minor alleles
-    if previous_genotype[0] == 0:
+    if previous_genotype == 0:
       #Probability for minor homogeneous genotypes
       hom = (ref_alt_function(previous_maf,ld)**2) * (maf**2)
       #Probability for heterogeneous genotypes
@@ -246,8 +247,8 @@ def cond_genotype_schema(previous_maf,distance,alpha,beta,gamma,strength=-1):
 
 #maf1, hwp1 = genotype_schema(alpha_mld)
 #minor1 = random.choice([0,2])
-#g1 = [genotype(hwp1,minor1) for i in range(1000)]
-#plt.hist([gref(g1[i]) for i in range(1000)],facecolor='green',alpha=0.5)
+#g1 = [gref(genotype(hwp1,minor1)) for i in range(1000)]
+#plt.hist([g1[i] for i in range(1000)],facecolor='green',alpha=0.5)
 #plt.title("maf ~" + str(int(maf1*100)/100),fontsize = 40)
 #plt.grid(True)
 #plt.show()
@@ -259,20 +260,20 @@ def cond_genotype_schema(previous_maf,distance,alpha,beta,gamma,strength=-1):
 
 #maf2, hwp2, ld2 = cond_genotype_schema(maf1,distance,alpha_mld,beta_mld,gamma_mld)
 #minor2 = random.choice([0,2])
-#g2 = [genotype(hwp2(g1[i]),minor2) for i in range(1000)]
-#plt.hist([gref(g2[i]) for i in range(1000)],facecolor="green",alpha=0.5)
+#g2 = [gref(genotype(hwp2(g1[i]),minor2)) for i in range(1000)]
+#plt.hist([g2[i] for i in range(1000)],facecolor="green",alpha=0.5)
 #plt.title("maf ~" + str(int(maf2*100)/100),fontsize = 40)
 #plt.grid(True)
 #plt.show()
 
-#plt.scatter([gref(g1[i])+random.gauss(0,.05) for i in range(1000)],[gref(g2[i])+random.gauss(0,.05) for i in range(1000)],color = "red", s=12,alpha=0.1)
+#plt.scatter([g1[i]+random.gauss(0,.05) for i in range(1000)],[g2[i]+random.gauss(0,.05) for i in range(1000)],color = "red", s=12,alpha=0.1)
 #plt.title("ld ~" + str(int(ld2*100)/100),fontsize = 40)
 #plt.grid(True)
 #plt.show()
 ##Not in tutorial
-#print("hwp1:",hwp1)
-#for x in [(2,2),(1,1),(1,-1),(0,0)]:
-  #print("hwp2"+str(x)+":",hwp2(x))
+##print("hwp1: ",hwp1)
+##for x in [0,1,-1,2]:
+  ##print("hwp2: "+str(x)+":",hwp2(x))
 
 def SNP_distribution(reference,length):
   positions = list()
@@ -299,7 +300,7 @@ def initiate_block(reference,alpha,Npop=1000):
   maf, hwp = genotype_schema(alpha)
   minor = random.choice([0,2])
   pre_matrix.append([genotype(hwp,minor) for i in range(Npop)])
-  #This time, we are not using gref but the genotype code
+  #Here, we do not use the function gref, but the genotype code
   matrix[-1].extend([pre_matrix[-1][i][1] for i in range(Npop)])
   return maf, pre_matrix, matrix
 
@@ -319,8 +320,8 @@ def continue_block(maf0,pre_matrix,matrix,positions,alpha,beta,gamma,strength=-1
 
     maf, hwp, ld = cond_genotype_schema(maf0,distance,alpha,beta,gamma,strength)
     minor = random.choice([0,2])
-    pre_matrix.append([genotype(hwp(pre_matrix[-1][i]),minor) for i in range(Npop)])
-    #This time, we are not using gref but the genotype code
+    pre_matrix.append([genotype(hwp(gref(pre_matrix[-1][i])),minor) for i in range(Npop)])
+    #Here, we do not use the function gref, but the genotype code
     matrix[-1].extend([pre_matrix[-1][i][1] for i in range(Npop)])
 
   return maf, pre_matrix, matrix
@@ -388,9 +389,9 @@ def minor_haplotype(sub_pre_matrix):
     chr1 = True
     chr2 = True
     for j in range(n):
-      chr1 = chr1 and (sub_pre_matrix[j][i][0] == 2 or (sub_pre_matrix[j][i][1] == 1 and sub_pre_matrix[j][i][0] == 1))
-      chr2 = chr2 and (sub_pre_matrix[j][i][0] == 2 or (sub_pre_matrix[j][i][1] == 1 and sub_pre_matrix[j][i][0] == -1))
-    count = count + (1 if chr1 else 0) + (1 if chr1 else 0)
+      chr1 = chr1 and (gref(sub_pre_matrix[j][i]) == 2 or gref(sub_pre_matrix[j][i]) == 1)
+      chr2 = chr2 and (gref(sub_pre_matrix[j][i]) == 2 or gref(sub_pre_matrix[j][i]) == -1)
+    count = count + (1 if chr1 else 0) + (1 if chr2 else 0)
   return (count/(2*m) if m > 0 else 0)
 
 def LD_r2_matrix(pre_matrix):
@@ -430,7 +431,9 @@ def genmatrix(blocks,strength,population,Npop):
   reference = 0
   alpha_mld, beta_mld, gamma_mld = population_mld(population)
   maf, pre_matrix, matrix = initiate_block(reference,alpha_mld,Npop)
+  loading_frame = Loading("genmatrix: ",len(blocks))
   for i in range(len(blocks)):
+    loading_frame.show(i+1)
     positions = SNP_distribution(reference,blocks[i])
     maf, pre_matrix, matrix = continue_block(maf,pre_matrix,matrix,positions,alpha_mld,beta_mld,gamma_mld,strength,Npop)
     reference = positions[-1]
@@ -465,8 +468,9 @@ def create_vcfgz(vcf_name,matrix,alpha,beta,gamma,system="unix"):
   f.write("#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO\tFORMAT\t"+INDIV+eol)
   f.flush()
   nuc = ["A","C","G","T"]
+  loading_frame = Loading("create_vcfgz: ",len(matrix))
   for i in range(len(matrix)):
-    print(matrix[i][:10])
+    loading_frame.show(i+1)
     A = random.choice(nuc)
     B = random.choice(nuc[:nuc.index(A)]+nuc[nuc.index(A)+1:])
     info = ["23", str(int(1000*matrix[i][0])), ".", A, B, ".", "PASS", "NS="+str(len(matrix[i])-1)+";AP="+str(alpha)+";BP="+str(beta)+";CP="+str(gamma), "GT"]
