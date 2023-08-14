@@ -3,7 +3,7 @@
 
 <div style="width: 180px; margin: auto;"><a href="https://surveillance.cancer.gov/genetic-simulation-resources/"><img src="https://surveillance.cancer.gov/gsr/static/img/gsr_tile.jpg" alt="Catalogued on GSR" width="180" height="60" /></a></div>
 
-## Highlights and new updates
+## Highlights and updates
 Latest release version ```0.3b0```:
 
 1. Module ```Framework``` has been updated:
@@ -92,7 +92,7 @@ Parameters | Type | Values
 ```population```  | ```float``` | From 0 (for more rare mutations) to 1 (for less rare mutations)
 ```Npop```  | ```int```  | Positive integer specifying the number of individuals in the genomic matrix
 
-The generation of each locus in a VCF file tends to be linear in the parameter ```Npop```. On average, a genetic variant can take from 0.3 to 0.8 seconds to be generated when ```Npop=100000``` (this may vary depending on your machine). The estimated time complexity for an average machine is shown below.
+The generation of each locus in a VCF file tends to be linear in the parameter ```Npop```. On average, a genetic variant can take from 0.3 to 1 seconds to be generated when ```Npop=100000``` (this may vary depending on your machine). The estimated time complexity for an average machine is shown below.
 
 ![](img/time_complexity.png) 
 

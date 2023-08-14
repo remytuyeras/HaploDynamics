@@ -36,12 +36,12 @@ def __init__(self,
              system: str = "unix"
              ) -> None
 ```
-> <ins>Description</ins>
-> - **inputs:**
->   - .
-> - **output:**
->   - .
->
+ <ins>Description</ins>
+ - **inputs:**
+   - .
+ - **output:**
+   - .
+
 
 &nbsp; 
 
@@ -67,12 +67,12 @@ def initiate_vcf(self,
                  Npop: int
                  ) -> None
 ```
-> <ins>Description</ins>
-> - **inputs:**
->   - .
-> - **output:**
->   - .
->
+ <ins>Description</ins>
+ - **inputs:**
+   - .
+ - **output:**
+   - .
+
 
 &nbsp; 
 
@@ -113,18 +113,18 @@ def generate_vcf(self,
                  chrom: str = "23"
                  ) -> tuple[float,float,float]
 ```
-> <ins>Description</ins>
-> - **inputs:**
->   - ```blocks```: a list of integer values used to encode blocks of genetic positions linked together by an amount of linkage disequilibrium determined by a decay function. The genetic positions generated for each block are used to index the data contained in the output VCF file;
->   - ```strength```: a floating-point number in the interval $[-1,1]$ that represents the strength of the linkage disequilibrium. For example, a strength of $1$ refers to the maximum value that the linkage disequilibrium measure can take given the values of the parameters generated during the siumlation. See the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">tutorial</a> to learn more about the parameter ```strength```;
->   - ```population```: a floating-point number in the interval $[0,1]$, which is given as an input to the function ```population_mld()``` to generate a stochastic population profile;
->   - ```Npop```: an integer $N$ that represents the number of individuals in the simulated dataset;
->   - ```chrom```: a string that represents the chromosome number used to annotate the VCF file.
-> - **output:**
->   - ```speed```: execution time for the run of the process;
->   - ```max_mem```: maximal memory usage during the run of the process;
->   - ```cur_mem```: memory usage at the end the process;
->
+ <ins>Description</ins>
+ - **inputs:**
+   - ```blocks```: a list of integer values used to encode blocks of genetic positions linked together by an amount of linkage disequilibrium determined by a decay function. The genetic positions generated for each block are used to index the data contained in the output VCF file;
+   - ```strength```: a floating-point number in the interval $[-1,1]$ that represents the strength of the linkage disequilibrium. For example, a strength of $1$ refers to the maximum value that the linkage disequilibrium measure can take given the values of the parameters generated during the siumlation. See the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">tutorial</a> to learn more about the parameter ```strength```;
+   - ```population```: a floating-point number in the interval $[0,1]$, which is given as an input to the function ```population_mld()``` to generate a stochastic population profile;
+   - ```Npop```: an integer $N$ that represents the number of individuals in the simulated dataset;
+   - ```chrom```: a string that represents the chromosome number used to annotate the VCF file.
+ - **output:**
+   - ```speed```: execution time for the run of the process;
+   - ```max_mem```: maximal memory usage during the run of the process;
+   - ```cur_mem```: memory usage at the end the process;
+
 
 &nbsp; 
 
