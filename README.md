@@ -4,7 +4,7 @@
 <div style="width: 180px; margin: auto;"><a href="https://surveillance.cancer.gov/genetic-simulation-resources/"><img src="https://surveillance.cancer.gov/gsr/static/img/gsr_tile.jpg" alt="Catalogued on GSR" width="180" height="60" /></a></div>
 
 ## Highlights and updates
-Latest release version ```0.3b0```:
+Release version ```0.3b*```:
 
 1. Module ```Framework``` has been updated:
     - Class ```Model``` added. Methods currently available:
@@ -47,7 +47,7 @@ import HaploDynamics.Framework as fmx
 ```
 To upgrade the package to its latest version, use the following command.
 ```shell
-$ pip install --upgrade HaploDynamics==0.3b0
+$ pip install --upgrade HaploDynamics==0.3b1
 ```
 ### Manual installation
 HaploDynamics uses the [SciPy](https://docs.scipy.org/doc/scipy/reference/stats.html) library for certain calculations. To install SciPy, run the following command, or see SciPy's [installation instructions](https://scipy.org/install/) for more options.
@@ -173,7 +173,7 @@ Correlations            |  genetic distances to average correlations
 
 ## To cite this work
 
-Tuyeras, R. (2023). _HaploDynamics: A python library to develop genomic data simulators_ (Version 0.3-beta.0) [Computer software]. [![DOI](https://zenodo.org/badge/609227235.svg)](https://zenodo.org/badge/latestdoi/609227235)
+Tuyeras, R. (2023). _HaploDynamics: A python library to develop genomic data simulators_ (Version 0.3-beta.1) [Computer software]. [![DOI](https://zenodo.org/badge/609227235.svg)](https://zenodo.org/badge/latestdoi/609227235)
 
 <br/>
 
