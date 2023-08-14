@@ -36,7 +36,7 @@ def __init__(self,
              system: str = "unix"
              ) -> None
 ```
-> <u>Description</u>
+> <ins>Description</ins>
 > - **inputs:**
 >   - .
 > - **output:**
@@ -67,7 +67,7 @@ def initiate_vcf(self,
                  Npop: int
                  ) -> None
 ```
-> <u>Description</u>
+> <ins>Description</ins>
 > - **inputs:**
 >   - .
 > - **output:**
@@ -113,7 +113,7 @@ def generate_vcf(self,
                  chrom: str = "23"
                  ) -> tuple[float,float,float]
 ```
-> <u>Description</u>
+> <ins>Description</ins>
 > - **inputs:**
 >   - ```blocks```: a list of integer values used to encode blocks of genetic positions linked together by an amount of linkage disequilibrium determined by a decay function. The genetic positions generated for each block are used to index the data contained in the output VCF file;
 >   - ```strength```: a floating-point number in the interval $[-1,1]$ that represents the strength of the linkage disequilibrium. For example, a strength of $1$ refers to the maximum value that the linkage disequilibrium measure can take given the values of the parameters generated during the siumlation. See the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">tutorial</a> to learn more about the parameter ```strength```;
