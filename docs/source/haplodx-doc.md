@@ -390,7 +390,7 @@ def linkage_disequilibrium(alpha: float,
        - <ins>Best practice:</ins> Use the **third** ouptut of the function ```population_mld()``` to generate the value ```gamma```.
    - ```strength```: a floating-point number in the interval $[-1,1]$ that represents the strength of the linkage disequilibrium. For example, a strength of $1$ refers to the maximum value that the linkage disequilibrium measure can take given the values of the parameters $t$, $p$, $\beta$ and $\gamma$. See the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">tutorial</a> to learn more about the parameter ```strength```.
  - **output:**
-   - a stochastic process $t \mapsto p \mapsto (\ell,q)$ where $\ell$ measures the amount of linkage disequilibrium between two genetic positions separated by a distance of $t$ kilobase, and where $p$ and $q$ represent the minor allele frequencies at these genetic positions, respectively.
+   - a stochastic process $t \mapsto p \mapsto (\ell,q)$ where $\ell$ measures the amount of linkage disequilibrium between two genetic positions separated by a distance of $t$ kilobases, and where $p$ and $q$ represent the minor allele frequencies at these genetic positions, respectively.
 
 &nbsp; 
 
