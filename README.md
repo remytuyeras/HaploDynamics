@@ -34,7 +34,7 @@
     * [HaploDynamics.Framework.Model.cond_genotype_schema](docs/source/framework-doc.md#haplodynamicsframeworkmodelcond_genotype_schema) added;
     * [Documentation for the Framework module](docs/source/framework-doc.md) polished;
     * Various typos and clumsy phrasing have been corrected in the [documentation](#documentation);
-    * Loading bar appreance changed:
+    * Loading bar appearance changed:
         ```shell
         $ python myscript.py
         Model.generate_vcf: |████████████████████| 100%
