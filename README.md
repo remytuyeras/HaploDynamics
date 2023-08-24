@@ -4,34 +4,46 @@
 <div style="width: 180px; margin: auto;"><a href="https://surveillance.cancer.gov/genetic-simulation-resources/"><img src="https://surveillance.cancer.gov/gsr/static/img/gsr_tile.jpg" alt="Catalogued on GSR" width="180" height="60" /></a></div>
 
 ## Highlights and updates
-Release version ```0.3b*```:
 
-1. Module ```Framework``` has been updated:
-    - Class ```Model``` added. Methods currently available:
-      * [HaploDynamics.Framework.Model.\_\_init\_\_](docs/source/framework-doc.md#haplodynamicsframeworkmodel__init__) (with a tutorial)
-      * [HaploDynamics.Framework.Model.initiate_vcf](docs/source/framework-doc.md#haplodynamicsframeworkmodelinitiate_vcf) (with a tutorial)
-      * [HaploDynamics.Framework.Model.generate_vcf](docs/source/framework-doc.md#haplodynamicsframeworkmodelgenerate_vcf) (with tutorials and performance tests)
+1. The [documentation](#documentation) has been enhanced with tutorials and performance analyses;
 
-2. Module ```HaploDX``` has been updated:
-    - A loading bar was added to the following processes, with information on time and memory:
-      * [HaploDynamics.HaploDX.genmatrix](docs/source/haplodx-doc.md#haplodynamicshaplodxgenmatrix)
-      * [HaploDynamics.HaploDX.create_vcfgz](docs/source/haplodx-doc.md#haplodynamicshaplodxcreate_vcfgz)
-      - Example:
-          ```shell
-          $ python myscript.py
-          genmatrix: >||||||||||||||||||||< 100%
-          time (sec.): 3.409385681152344e-05
-          max. mem (MB): 0.0008192062377929688
-          cur. mem (MB): 0.0007524490356445312
-          ```
-    - The accuracy of simulations has been improved by using better genotype representations. The <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">tutorial</a> has been updated to reflect these changes. The following functions have been affected by this change:
-        * [HaploDynamics.HaploDX.genotype](docs/source/haplodx-doc.md#haplodynamicshaplodxgenotype)
-        * [HaploDynamics.HaploDX.gref](docs/source/haplodx-doc.md#haplodynamicshaplodxgref)
-        * [HaploDynamics.HaploDX.cond_genotype_schema](docs/source/haplodx-doc.md#haplodynamicshaplodxcond_genotype_schema)
-        * [HaploDynamics.HaploDX.continue_block](docs/source/haplodx-doc.md#haplodynamicshaplodxcontinue_block)
-        * [HaploDynamics.HaploDX.minor_haplotype](docs/source/haplodx-doc.md#haplodynamicshaplodxminor_haplotype)
+2. Release version ```0.4b0```:
+    * **Compose your own mutation model:** the class ```Model``` now lets you create your own mutation model and use it with the generative functions of the HaploDX framework.
+        ```python
+        import HaploDynamics.Framework as fmx
+        #Start your simulation
+        model = fmx.Model("tutorial")
+        #Initialize the genomic landscape
+        model.initiate_landscape(reference = 1.245)
+        #Design your own genomic landscape with any allele frequency model
+        model.extend_landscape(*(fmx.Model.standard_schema(20) for _ in range(6)))
+        #Population and LD parameters
+        strength = 1
+        population = 0.1
+        Npop = 1000
+        chrom = "1"
+        #Generate the simulation in a VCF file
+        model.generate_vcf(strength,population,Npop,chrom)
+        ```
 
-3. [Documentation](#documentation) completed with step-by-step instructions and visualizations. 
+    * [HaploDynamics.Framework.Model.initiate_landscape](docs/source/framework-doc.md#haplodynamicsframeworkmodelinitiate_landscape) added;
+    * [HaploDynamics.Framework.Model.extend_landscape](docs/source/framework-doc.md#haplodynamicsframeworkmodelextend_landscape) added;
+    * [HaploDynamics.Framework.Model.standard_schema](docs/source/framework-doc.md#haplodynamicsframeworkmodelstandard_schema) added;
+    * [HaploDynamics.Framework.Model.genotype_schema](docs/source/framework-doc.md#haplodynamicsframeworkmodelgenotype_schema) added;
+    * [HaploDynamics.Framework.Model.linkage_disequilibrium](docs/source/framework-doc.md#haplodynamicsframeworkmodellinkage_disequilibrium) added;
+    * [HaploDynamics.Framework.Model.cond_genotype_schema](docs/source/framework-doc.md#haplodynamicsframeworkmodelcond_genotype_schema) added;
+    * [Documentation for the Framework module](docs/source/framework-doc.md) polished;
+    * Various typos and clumsy phrasing have been corrected in the [documentation](#documentation);
+    * Loading bar appreance changed:
+        ```shell
+        $ python myscript.py
+        Model.generate_vcf: |████████████████████| 100%
+        time (sec.): 0.7510931491851807
+        max. mem (MB): 0.11163139343261719
+        cur. mem (MB): 0.0834970474243164
+        ```
+  
+
 
 ## Installation
 
@@ -47,7 +59,7 @@ import HaploDynamics.Framework as fmx
 ```
 To upgrade the package to its latest version, use the following command.
 ```shell
-$ pip install --upgrade HaploDynamics==0.3b1
+$ pip install --upgrade HaploDynamics==0.4b0
 ```
 ### Manual installation
 HaploDynamics uses the [SciPy](https://docs.scipy.org/doc/scipy/reference/stats.html) library for certain calculations. To install SciPy, run the following command, or see SciPy's [installation instructions](https://scipy.org/install/) for more options.
@@ -69,7 +81,7 @@ absolute/path/to/HaploDynamics
 To import the modules of the library to your script, you can use the following syntax where the path ```absolute/path/to/HaploDynamics``` should be replaced with the path obtained earlier.
 ```python
 import sys
-sys.path.insert(0,"absolute/path/to/HaploDynamics")
+sys.path.insert(1,"absolute/path/to/HaploDynamics")
 import HaploDynamics.HaploDX as hdx
 import HaploDynamics.Framework as fmx
 ```
@@ -173,7 +185,7 @@ Correlations            |  genetic distances to average correlations
 
 ## To cite this work
 
-Tuyeras, R. (2023). _HaploDynamics: A python library to develop genomic data simulators_ (Version 0.3-beta.1) [Computer software]. [![DOI](https://zenodo.org/badge/609227235.svg)](https://zenodo.org/badge/latestdoi/609227235)
+Tuyeras, R. (2023). _HaploDynamics: A python library to develop genomic data simulators_ (Version 0.4-beta.0) [Computer software]. [![DOI](https://zenodo.org/badge/609227235.svg)](https://zenodo.org/badge/latestdoi/609227235)
 
 <br/>
 

@@ -16,29 +16,106 @@ class Model(object):
     self.pool = mp.Pool(cpus)
     self.fname = fname
     self.eol = "\n" if system == "unix" else "\r\n"
+    self.initial_schema = None
+    self.landscape = []
+    self.initiate_landscape()
 
+  def initiate_landscape(self,afs=afs_sample,reference=0):
+    self.initial_schema = (afs,reference)
 
-  def initiate_vcf(self,length,Npop,chrom = "23"):
+  def extend_landscape(self,*schemas):
+    self.landscape.extend(list(schemas))
+    return len(self.landscape)
+
+  @staticmethod
+  def standard_schema(npos):
+    pos_dist = lambda reference: SNP_distribution(reference,npos)
+    return npos, afs_sample, pos_dist
+
+  def genotype_schema(self,alpha=4/30,afs=afs_sample):
+    p =  afs(alpha)
+    #We use the minor allele frequency as a reference
+    maf = min(p,1-p)
+    #Probability for minor homogeneous genotypes
+    hom = maf**2
+    #Probability for heterogeneous genotypes
+    het = maf*(1-maf)
+    #Interval decomposition simulating the Hardy-Weinberg principle
+    hwp = [0, hom, hom+het, hom+2*het, 1]
+    return maf, hwp
+
+  def linkage_disequilibrium(self,alpha,beta,gamma,strength=-1,afs=afs_sample):
+    ub = gamma*math.log2(1/beta)
+    shift = random.uniform(min(ub,strength*ub),ub)
+    def LD(p):
+      def ld(t):
+        q = afs(alpha)
+        while not(lb_freq(beta,gamma,p,t,shift) <= q <= ub_freq(beta,gamma,p,t,shift)):
+          q = afs(alpha)
+        l = decay(amplifier(beta,p,q),2*gamma,shift)(t)+1
+        return l, q
+      return ld
+    return LD
+
+  def cond_genotype_schema(self,previous_maf,distance,alpha,beta,gamma,strength=-1,afs=afs_sample):
+    #Linkage disequilibrium
+    ld, maf = self.linkage_disequilibrium(alpha,beta,gamma,strength,afs)(previous_maf)(distance)
+    while maf > 0.5:
+      ld, maf = self.linkage_disequilibrium(alpha,beta,gamma,strength,afs)(previous_maf)(distance)
+    #Conditional Hardy-Weinberg principle encoded as a function
+    def hwp(previous_genotype):
+      #Previous genotype has minor alleles
+      if previous_genotype == 2:
+        #Probability for minor homogeneous genotypes
+        hom = (ld**2) * (maf**2)
+        #Probability for heterogeneous genotypes
+        het = ld * ref_alt_function(maf,ld) * maf * (1-maf)
+        #Interval decomposition simulating the conditional Hardy-Weinberg principle
+        return [0, hom, hom+het,hom+2*het, 1]
+      #Previous genotype has one minor allele
+      if abs(previous_genotype) == 1:
+        #Probability for minor homogeneous genotypes
+        hom = ld * ref_alt_function(previous_maf,ld) * (maf**2)
+        #Probability for heterogeneous genotypes
+        het1 = ld * alt_alt_function(previous_maf,maf,ld) * maf * (1-maf)
+        het2 = ref_alt_function(previous_maf,ld) * ref_alt_function(maf,ld) * maf * (1-maf)
+        #Previous genotype consists of a minor-major pairing
+        if previous_genotype == -1:
+          return [0, hom, hom+het1,hom+het1+het2, 1]
+        #Previous genotype consists of a major-minor pairing
+        elif previous_genotype == 1:
+          return [0, hom, hom+het2,hom+het2+het1, 1]
+      #Previous genotype has no minor alleles
+      if previous_genotype == 0:
+        #Probability for minor homogeneous genotypes
+        hom = (ref_alt_function(previous_maf,ld)**2) * (maf**2)
+        #Probability for heterogeneous genotypes
+        het = ref_alt_function(previous_maf,ld) * alt_alt_function(previous_maf,maf,ld) * maf * (1-maf)
+        #Interval decomposition simulating the conditional Hardy-Weinberg principle
+        return [0, hom, hom+het,hom+2*het, 1]
+    return maf, hwp, ld
+
+  def initiate_vcf(self,Npos,Npop,chrom = "23"):
     f = gzip.open(self.fname+".vcf.gz","wt")
-    order = int(math.log10(Npop))
+    order = int(math.log10(Npop))+1
     write = lambda s : f.write(s+self.eol)
     idnum = lambda s: "ID"+"0"*(order-len(str(s)))+str(s)
     write("##fileformat=VCFv4.2")
     write("##fileDate="+"".join(str(datetime.date.today()).split("-")))
     write("##source=HaploDX")
     write("##reference=https://github.com/remytuyeras/HaploDynamics/blob/main/README.md")
-    write("##contig=<ID="+chrom+",length="+str(length)+",species=\"simulated Homo sapiens\">")
+    write("##contig=<ID="+chrom+",length="+str(Npos)+",species=\"simulated Homo sapiens\">")
     write("##INFO=<ID=NS,Number=1,Type=Integer,Description=\"Number of Samples With Data\">")
     write("##INFO=<ID=AP,Number=1,Type=Float,Description=\"Alpha Parameter for Simulation\">")
     write("##INFO=<ID=BP,Number=1,Type=Float,Description=\"Beta Parameter for Simulation\">")
     write("##INFO=<ID=CP,Number=1,Type=Float,Description=\"Gamma Parameter for Simulation\">")
     write("##FORMAT=<ID=GT,Number=1,Type=String,Description=\"Genotype\">")
-    INDIV = "\t".join(map(idnum,range(1,Npop)))
+    INDIV = "\t".join(map(idnum,range(1,Npop+1)))
     write("#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO\tFORMAT\t"+INDIV)
     f.flush()
     return f
 
-  def generate_vcf(self,blocks,strength,population,Npop,chrom = "23"):
+  def generate_vcf(self,strength,population,Npop,chrom = "23"):
     #Values needed to make the VCF file
     alpha, beta, gamma = population_mld(population)
     nuc   = ["A","C","G","T"]
@@ -53,17 +130,17 @@ class Model(object):
     #Important parameters to control the memory space
     pre_vector  = None
     vector      = None
-    length      = sum(blocks)+1
+    Npos        = sum([npos for npos,_,_ in self.landscape])+1
     #For the loop
-    reference   = 0
     maf         = None
     #For the output
     speed = None
     max_mem = None
     cur_mem = None
-    with self.initiate_vcf(length,Npop,chrom) as f:
+    with self.initiate_vcf(Npos,Npop,chrom) as f:
       ####### initiate_block
-      maf, hwp = genotype_schema(alpha)
+      afs, reference = self.initial_schema
+      maf, hwp = self.genotype_schema(alpha,afs)
       minor = random.choice([0,2])
       vector = [reference]
       pre_vector = [genotype(hwp,minor) for i in range(Npop)]
@@ -72,15 +149,15 @@ class Model(object):
       ####### end of initiate_block
 
       #Loop: Loading bar on the standard output
-      loading_frame = Loading("Model.generate_vcf: ",len(blocks))
-      for i, block in enumerate(blocks):
+      loading_frame = Loading("Model.generate_vcf: ",len(self.landscape))
+      for i, schema in enumerate(self.landscape):
         #Loading bar progress
         speed, max_mem, cur_mem = loading_frame.show(i+1)
-        positions = SNP_distribution(reference,block)
+        positions = schema[2](reference)
         ####### continue_block
         for k in range(len(positions)):
           distance = abs(positions[k]-reference)
-          maf, hwp, ld = cond_genotype_schema(maf,distance,alpha,beta,gamma,strength)
+          maf, hwp, ld = self.cond_genotype_schema(maf,distance,alpha,beta,gamma,strength,schema[1])
           minor = random.choice([0,2])
           vector = [positions[k]]
           pre_vector = [genotype(hwp(gref(pre_vector[i])),minor) for i in range(Npop)]

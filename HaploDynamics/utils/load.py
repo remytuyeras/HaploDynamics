@@ -33,7 +33,7 @@ class Loading(object):
       m1 = "max. mem (MB): " + str(self.max_mem)
       m0 = "cur. mem (MB): " + str(self.cur_mem)
       info = "\n".join(["",t,m1,m0,""])
-    return ">"+c1+"|"*d+" "*(20-d)+c2+"< "+str(int(100*d/20))+"%"+info
+    return "|"+c1+u"\u2588"*d+" "*(20-d)+c2+"| "+str(int(100*d/20))+"%"+info
 
   def show(self,state: int):
     self.current = state
