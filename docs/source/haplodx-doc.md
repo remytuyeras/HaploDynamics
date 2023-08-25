@@ -1,6 +1,6 @@
 # Documentation for the ```HaploDX``` module
 
-A comprehensive tutorial of the **HaploDX** module can be found on my personal webpage (<a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">here</a>). This tutorial provides a holistic overview of the module, including its functions, features, and applications.
+A comprehensive tutorial of the **HaploDX** module can be found on my personal webpage (<a href="https://www.normalesup.org/~tuyeras/node_diss/blg/haplodx.html">here</a>). This tutorial provides a holistic overview of the module, including its functions, features, and applications.
 
 The present documentation, on the other hand, focuses on each function of the HaploDX module individually. It is recommended to first experiment with the functions presented in the [Data Generation](#data-generation) section, which will give you a good foundation for understanding the rest of the module.
 
@@ -41,7 +41,7 @@ The present documentation, on the other hand, focuses on each function of the Ha
 ---
 
 ## Population and Allele Frequency Spectrum Modeling
-The processes contained in this section are based on various research results borrowed from the literature (see the reference section in the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">tutorial</a>. For more information on the functions' designs, please refer to the first section of the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">tutorial</a>.
+The processes contained in this section are based on various research results borrowed from the literature (see the reference section in the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/haplodx.html">tutorial</a>. For more information on the functions' designs, please refer to the first section of the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/haplodx.html">tutorial</a>.
 
 * [HaploDynamics.HaploDX.stochastic_line](#haplodynamicshaplodxstochastic_line)
 * [HaploDynamics.HaploDX.population_mut](#haplodynamicshaplodxpopulation_mut)
@@ -240,7 +240,7 @@ def population_mld(t: float
 &nbsp; 
 
 ## LD and Hardy–Weinberg Principle Modeling
-The processes contained in this section rely on a generalization of the Hardy-Weinberg principle to genotypes. This generalization requires the use of a new linkage disequilibrium measure, $L$, which possesses homomorphic properties linking haplotypes to genotypes. For more information on how the measure $L$ relates to [standard linkage disequilibirum measures](https://en.wikipedia.org/wiki/Linkage_disequilibrium) such as $D$ and $r^2$, please refer to the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">tutorial</a>. 
+The processes contained in this section rely on a generalization of the Hardy-Weinberg principle to genotypes. This generalization requires the use of a new linkage disequilibrium measure, $L$, which possesses homomorphic properties linking haplotypes to genotypes. For more information on how the measure $L$ relates to [standard linkage disequilibirum measures](https://en.wikipedia.org/wiki/Linkage_disequilibrium) such as $D$ and $r^2$, please refer to the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/haplodx.html">tutorial</a>. 
 
 * [HaploDynamics.HaploDX.decay](#haplodynamicshaplodxdecay)
 * [HaploDynamics.HaploDX.ref_alt_function](#haplodynamicshaplodxref_alt_function)
@@ -280,14 +280,14 @@ def ref_alt_function(y: float,
 ```
  <ins>Description</ins>
 
- - **abstract:** This function returns a callable item encoding a function $F:(y,x) \mapsto F_y(x)$. As shown in the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">tutorial</a>, the function $F$ can be used to compute the amount of homomorphic linkage disequilibirum $L$ between a "reference allele" and an "alternate allele" at two different genetic positions $i$ and $j$. 
+ - **abstract:** This function returns a callable item encoding a function $F:(y,x) \mapsto F_y(x)$. As shown in the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/haplodx.html">tutorial</a>, the function $F$ can be used to compute the amount of homomorphic linkage disequilibirum $L$ between a "reference allele" and an "alternate allele" at two different genetic positions $i$ and $j$. 
       > **Note**
-      > The adjective "reference" does not refer to an allele located on a reference genome sequence, but an allele _taken as a reference_ for the computation operated by the function $F$. For example, in the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">tutorial</a>, the reference alleles for $F$ are all taken to be the minor alleles.
+      > The adjective "reference" does not refer to an allele located on a reference genome sequence, but an allele _taken as a reference_ for the computation operated by the function $F$. For example, in the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/haplodx.html">tutorial</a>, the reference alleles for $F$ are all taken to be the minor alleles.
       >
  - **inputs:**
    - ```y```: a floating-point number in the interval $[0,1)$ that represents a reference allele frequency at one of the correspoding positions $i$ or $j$. 
       > **Note**
-      > In the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">tutorial</a>, this reference allele frequency was denoted by either $p$ or $q$ depending on the allelic combinations considered;
+      > In the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/haplodx.html">tutorial</a>, this reference allele frequency was denoted by either $p$ or $q$ depending on the allelic combinations considered;
       >
    - ```x```: a floating-point number that represents the amount of homomorphic linkage disequilibirum $L$ between the two reference alleles at the positions $i$ and $j$;
  - **output:**
@@ -304,9 +304,9 @@ def alt_alt_function(y: float,
 ```
  <ins>Description</ins>
 
- - **abstract:** This function returns a callable item encoding a function $G:(y,z,x) \mapsto G_{y,z}(x)$. As shown in the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">tutorial</a>, the function $G$ can be used to compute the amount of homomorphic linkage disequilibirum $L$ between two "alternate alleles" at two different genetic positions $i$ and $j$.
+ - **abstract:** This function returns a callable item encoding a function $G:(y,z,x) \mapsto G_{y,z}(x)$. As shown in the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/haplodx.html">tutorial</a>, the function $G$ can be used to compute the amount of homomorphic linkage disequilibirum $L$ between two "alternate alleles" at two different genetic positions $i$ and $j$.
       > **Note**
-      > Even though we define the antonym of the term "alternate allele" to be the term "reference allele", this nomenclature does not refer to an allele located on a reference genome sequence. Instead, it refers to an allele _taken as a reference_ for the computation operated by the function $G$. For example, in the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">tutorial</a>, the reference alleles for $G$ are all taken to be the minor alleles.
+      > Even though we define the antonym of the term "alternate allele" to be the term "reference allele", this nomenclature does not refer to an allele located on a reference genome sequence. Instead, it refers to an allele _taken as a reference_ for the computation operated by the function $G$. For example, in the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/haplodx.html">tutorial</a>, the reference alleles for $G$ are all taken to be the minor alleles.
       >
  - **inputs:**
    - ```y```: a floating-point number in the interval $[0,1)$ that represents a reference allele frequency $p$ at the position $i$;
@@ -327,7 +327,7 @@ def amplifier(beta: float,
 ```
  <ins>Description</ins>
 
- - **abstract:** As shown in the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">tutorial</a>, the homomorphic LD measure $L$ inherits a decay behavior from the decay behavior of the standard LD measure $r^2$. In this respect, the measure $L$ is characterized by an amplitude $\rho'$, a halfwidth $\gamma'$ and a translation parameter $\varepsilon'$. The function ```amplifier()``` can be used to compute the amplitude $\rho'$, which is given by a formula $\rho' = \sqrt{\beta(1/p-1)(1/q-1)}$ where $\beta$ is the amplitude of the measure $r^2$, and $p$ and $q$ are the minor allele frequencies associated with the genetic positions used to define the amount of LD.
+ - **abstract:** As shown in the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/haplodx.html">tutorial</a>, the homomorphic LD measure $L$ inherits a decay behavior from the decay behavior of the standard LD measure $r^2$. In this respect, the measure $L$ is characterized by an amplitude $\rho'$, a halfwidth $\gamma'$ and a translation parameter $\varepsilon'$. The function ```amplifier()``` can be used to compute the amplitude $\rho'$, which is given by a formula $\rho' = \sqrt{\beta(1/p-1)(1/q-1)}$ where $\beta$ is the amplitude of the measure $r^2$, and $p$ and $q$ are the minor allele frequencies associated with the genetic positions used to define the amount of LD.
  - **inputs:**
    - ```beta```: an amplitude $\beta$ for the decay behavior of the standard LD measure $r^2$. 
       > **Note**
@@ -434,7 +434,7 @@ def linkage_disequilibrium(alpha: float,
       > **Note**
       > For best practice, use the **third** ouptut of the function ```population_mld()``` to generate the value ```gamma```.
       >
-   - ```strength```: a floating-point number in the interval $[-1,1]$ that represents the strength of the linkage disequilibrium. For example, a strength of $1$ refers to the maximum value that the linkage disequilibrium measure can take given the values of the parameters $t$, $p$, $\beta$ and $\gamma$. See the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">tutorial</a> to learn more about the parameter ```strength```.
+   - ```strength```: a floating-point number in the interval $[-1,1]$ that represents the strength of the linkage disequilibrium. For example, a strength of $1$ refers to the maximum value that the linkage disequilibrium measure can take given the values of the parameters $t$, $p$, $\beta$ and $\gamma$. See the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/haplodx.html">tutorial</a> to learn more about the parameter ```strength```.
  - **output:**
    - a stochastic process $t \mapsto p \mapsto (\ell,q)$ where $\ell$ measures the amount of linkage disequilibrium between two genetic positions separated by a distance of $t$ kilobases, and where $p$ and $q$ represent the minor allele frequencies at these genetic positions, respectively.
 
@@ -469,7 +469,7 @@ def cond_genotype_schema(previous_maf: float,
       > **Note**
       > For best practice, use the **third** ouptut of the function ```population_mld()``` to generate the value ```gamma```.
       >
-   - ```strength```: a floating-point number in the interval $[-1,1]$ that represents the strength of the linkage disequilibrium. For example, a strength of $1$ refers to the maximum value that the linkage disequilibrium measure can take given the values of the parameters $t$, $p$, $\beta$ and $\gamma$. See the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">tutorial</a> to learn more about the parameter ```strength```.
+   - ```strength```: a floating-point number in the interval $[-1,1]$ that represents the strength of the linkage disequilibrium. For example, a strength of $1$ refers to the maximum value that the linkage disequilibrium measure can take given the values of the parameters $t$, $p$, $\beta$ and $\gamma$. See the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/haplodx.html">tutorial</a> to learn more about the parameter ```strength```.
  - **output:**
    - ```maf```: a floating-point number that encodes a (stochastic) minor allele frequency $q$ for the genotype at position $j$. 
       > **Note**
@@ -493,7 +493,7 @@ def cond_genotype_schema(previous_maf: float,
 &nbsp; 
 
 ## Data Generation
-The processes contained in this section can be used to implement simulators of variant call data. The function ```genmatrix()``` is a typical example of this. For more information about the implementation of ```genmatrix()```, please refer to the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">tutorial</a>.
+The processes contained in this section can be used to implement simulators of variant call data. The function ```genmatrix()``` is a typical example of this. For more information about the implementation of ```genmatrix()```, please refer to the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/haplodx.html">tutorial</a>.
 
 * [HaploDynamics.HaploDX.SNP_distribution](#haplodynamicshaplodxsnp_distribution)
 * [HaploDynamics.HaploDX.initiate_block](#haplodynamicshaplodxinitiate_block)
@@ -589,7 +589,7 @@ def continue_block(maf0: float,
       > **Note**
       > For best practice, use the **third** ouptut of the function ```population_mld()``` to generate the value ```gamma```.
       >
-   - ```strength```: a floating-point number in the interval $[-1,1]$ that represents the strength of the linkage disequilibrium. For example, a strength of $1$ refers to the maximum value that the linkage disequilibrium measure can take given the values of the parameters $\beta$ and $\gamma$. See the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">tutorial</a> to learn more about the parameter ```strength```.
+   - ```strength```: a floating-point number in the interval $[-1,1]$ that represents the strength of the linkage disequilibrium. For example, a strength of $1$ refers to the maximum value that the linkage disequilibrium measure can take given the values of the parameters $\beta$ and $\gamma$. See the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/haplodx.html">tutorial</a> to learn more about the parameter ```strength```.
    - ```Npop```: an integer $N$ that represents the number of individuals in the simulated dataset. Overall, the resulting population will tend to be characterized by the parameters ```alpha```, ```beta``` and ```gamma```.
  - **output:**
    - ```maf```: a floating-point number that _estimates_ the allele frequency $p$ associated with the greatest genetic position in the simulated dataset;
@@ -619,7 +619,7 @@ def genmatrix(blocks: list[float],
  - **abstract:** This function implements a basic variant call data simulator. Its implementation relies on the three processes ```SNP_distribution()```, ```initiate_block()``` and ```continue_block()```. See the module ```Framework``` for possible improvements or variations of this function.
  - **inputs:**
    - ```blocks```: a list of floating-point numbers representing the lengths of LD blocks. These lengths are used to generate sequences of genetic positions that index the data contained in the output ```matrix```;
-   - ```strength```: a floating-point number in the interval $[-1,1]$ that represents the strength of the linkage disequilibrium. For example, a strength of $1$ refers to the maximum value that the linkage disequilibrium measure can take given the values of the parameters generated during the siumlation. See the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">tutorial</a> to learn more about the parameter ```strength```;
+   - ```strength```: a floating-point number in the interval $[-1,1]$ that represents the strength of the linkage disequilibrium. For example, a strength of $1$ refers to the maximum value that the linkage disequilibrium measure can take given the values of the parameters generated during the siumlation. See the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/haplodx.html">tutorial</a> to learn more about the parameter ```strength```;
    - ```population```: a floating-point number in the interval $[0,1]$, which is given as an input to the function ```population_mld()``` to generate a stochastic population profile;
    - ```Npop```: an integer $N$ that represents the number of individuals in the simulated dataset.
  - **output:**

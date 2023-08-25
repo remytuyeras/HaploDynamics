@@ -98,8 +98,7 @@ The method ```initiate_landscape()``` can be used to define the first genetic po
   - $r$ is a genetic position.
 
 > **Note**
-> The variable contains a simplified encoding of a genetic schema as defined in [extend_landscape](#haplodynamicsframeworkmodelextend_landscape). Specifically, if the variable ```self.initial_schema``` contains a pair $(f,r)$, then the associated genetic schema is defined by the triple $(1,f,g)$ where $g$ is the constant function $s\mapsto[r]$.
->
+> The variable contains a simplified encoding of a genetic schema as defined in [extend_landscape](#haplodynamicsframeworkmodelextend_landscape). Specifically, if the variable ```self.initial_schema``` contains a pair $(f,r)$, then the associated genetic schema is defined by the triple $(1,f,g)$ where $g$ is the constant function $s\mapsto [r]$.
 
 &nbsp; 
 
@@ -401,7 +400,7 @@ def generate_vcf(self,
  <ins>Description</ins>
 
  - **inputs:**
-    - ```strength```: a floating-point number in the interval $[-1,1]$ that represents the strength of the linkage disequilibrium. For example, a strength of $1$ refers to the maximum value that the linkage disequilibrium measure can take given the values of the parameters generated during the siumlation. See the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/home.php?page=blg_stat/stat_1/home.php">tutorial</a> to learn more about the parameter ```strength```;
+    - ```strength```: a floating-point number in the interval $[-1,1]$ that represents the strength of the linkage disequilibrium. For example, a strength of $1$ refers to the maximum value that the linkage disequilibrium measure can take given the values of the parameters generated during the siumlation. See the <a href="https://www.normalesup.org/~tuyeras/node_diss/blg/haplodx.html">tutorial</a> to learn more about the parameter ```strength```;
     - ```population```: a floating-point number in the interval $[0,1]$, which is given as an input to the function ```population_mld()``` to generate a stochastic population profile;
     - ```Npop```: an integer $N$ that represents the number of individuals in the simulated dataset;
     - ```chrom```: a string that represents the chromosome number used to annotate the VCF file.

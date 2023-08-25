@@ -7,7 +7,7 @@
 
 1. The [documentation](#documentation) has been enhanced with tutorials and performance analyses;
 
-2. Release version ```0.4b0```:
+2. Release version ```0.4b*```:
     * **Compose your own mutation model:** the class ```Model``` now lets you create your own mutation model and use it with the generative functions of the HaploDX framework.
         ```python
         import HaploDynamics.Framework as fmx
@@ -59,7 +59,7 @@ import HaploDynamics.Framework as fmx
 ```
 To upgrade the package to its latest version, use the following command.
 ```shell
-$ pip install --upgrade HaploDynamics==0.4b0
+$ pip install --upgrade HaploDynamics==0.4b1
 ```
 ### Manual installation
 HaploDynamics uses the [SciPy](https://docs.scipy.org/doc/scipy/reference/stats.html) library for certain calculations. To install SciPy, run the following command, or see SciPy's [installation instructions](https://scipy.org/install/) for more options.
@@ -185,7 +185,7 @@ Correlations            |  genetic distances to average correlations
 
 ## To cite this work
 
-Tuyeras, R. (2023). _HaploDynamics: A python library to develop genomic data simulators_ (Version 0.4-beta.0) [Computer software]. [![DOI](https://zenodo.org/badge/609227235.svg)](https://zenodo.org/badge/latestdoi/609227235)
+Tuyeras, R. (2023). _HaploDynamics: A python library to develop genomic data simulators_ (Version 0.4-beta.1) [Computer software]. [![DOI](https://zenodo.org/badge/609227235.svg)](https://zenodo.org/badge/latestdoi/609227235)
 
 <br/>
 
