@@ -1,4 +1,15 @@
-# ![logo](img/haplodx-logo-42.png) Presentation of HaploDynamics 
+
+<br>
+
+<p align="center">
+  <img width="120px" src="img/haplodx-logo.png" />
+  <h1 align="center">HaploDynamics</h1>
+  <p align="center">A python library to simulate genomic data</p>
+</p>
+
+<br>
+
+# Presentation
 [![DOI](https://zenodo.org/badge/609227235.svg)](https://zenodo.org/badge/latestdoi/609227235)
 [![PyPI - Version](https://img.shields.io/pypi/v/HaploDynamics?color=yellow)](https://pypi.org/project/HaploDynamics/)
 ![PyPI - License](https://img.shields.io/pypi/l/HaploDynamics?color=orange)
