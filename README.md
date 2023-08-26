@@ -1,4 +1,12 @@
-# Presentation of HaploDynamics 
+# ![logo](img/haplodx-logo-42.png) Presentation of HaploDynamics 
+[![DOI](https://zenodo.org/badge/609227235.svg)](https://zenodo.org/badge/latestdoi/609227235)
+[![PyPI - Version](https://img.shields.io/pypi/v/HaploDynamics?color=yellow)](https://pypi.org/project/HaploDynamics/)
+![PyPI - License](https://img.shields.io/pypi/l/HaploDynamics?color=orange)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/HaploDynamics)
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Fwww.normalesup.org%2F~tuyeras%2Fnode_diss%2Fblg%2Fhaplodx.html&label=website%2Ftutorial)](https://www.normalesup.org/~tuyeras/node_diss/blg/haplodx.html)
+[![Downloads](https://static.pepy.tech/badge/HaploDynamics/month)](https://pepy.tech/project/HaploDynamics)
+[![Downloads](https://static.pepy.tech/badge/HaploDynamics)](https://pepy.tech/project/HaploDynamics)
+
 **HaploDynamics** (**HaploDX**) is a Python 3+ library that provides a collection of functions for simulating population-specific genomic data. It is part of the Genetic Simulator Resources (GSR) catalog. You can access the GSR catalog by clicking on the image below.
 
 <div style="width: 180px; margin: auto;"><a href="https://surveillance.cancer.gov/genetic-simulation-resources/"><img src="https://surveillance.cancer.gov/gsr/static/img/gsr_tile.jpg" alt="Catalogued on GSR" width="180" height="60" /></a></div>
