@@ -98,7 +98,8 @@ The method ```initiate_landscape()``` can be used to define the first genetic po
   - $r$ is a genetic position.
 
 > **Note**
-> The variable contains a simplified encoding of a genetic schema as defined in [extend_landscape](#haplodynamicsframeworkmodelextend_landscape). Specifically, if the variable ```self.initial_schema``` contains a pair $(f,r)$, then the associated genetic schema is defined by the triple $(1,f,g)$ where $g$ is the constant function $s\mapsto [r]$.
+> The variable contains a simplified encoding of a genetic schema as defined in [extend_landscape](#haplodynamicsframeworkmodelextend_landscape). Specifically, if the variable ```self.initial_schema``` contains a pair $(f, r)$, then the associated genetic schema is defined by the triple $(1, f, g)$ where $g$ is the constant function $s \mapsto [ r ]$.
+>
 
 &nbsp; 
 
@@ -123,7 +124,7 @@ def initiate_landscape(self,
 &nbsp; 
 
 ####  **Tutorial**
-The following code snippet shows how to call and use the method ```standard_schema```.
+The following code snippet shows how to call and use the method ```initiate_landscape```.
 ```python
 import HaploDynamics.Framework as fmx
 
@@ -177,7 +178,7 @@ def extend_landscape(self,
 &nbsp; 
 
 ####  **Tutorial**
-The following code snippet shows how to call and use the method ```standard_schema```.
+The following code snippet shows how to call and use the method ```extend_landscape```. Note that we make use of the method [standard_schema](#haplodynamicsframeworkmodelstandard_schema).
 ```python
 import HaploDynamics.Framework as fmx
 
