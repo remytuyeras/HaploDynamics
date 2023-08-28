@@ -13,6 +13,8 @@
 [![Downloads](https://static.pepy.tech/badge/HaploDynamics/month)](https://pepy.tech/project/HaploDynamics)
 [![Downloads](https://static.pepy.tech/badge/HaploDynamics)](https://pepy.tech/project/HaploDynamics)
 
+[![CodeFactor](https://www.codefactor.io/repository/github/remytuyeras/haplodynamics/badge)](https://www.codefactor.io/repository/github/remytuyeras/haplodynamics)
+
 **HaploDynamics** (**HaploDX**) is a Python 3+ library that provides a collection of functions for simulating population-specific genomic data. It is part of the Genetic Simulator Resources (GSR) catalog. You can access the GSR catalog by clicking on the image below.
 
 <div style="width: 180px; margin: auto;"><a href="https://surveillance.cancer.gov/genetic-simulation-resources/"><img src="https://surveillance.cancer.gov/gsr/static/img/gsr_tile.jpg" alt="Catalogued on GSR" width="180" height="60" /></a></div>
