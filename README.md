@@ -1,13 +1,8 @@
-
-<br>
-
 <p align="center">
-  <img width="120px" src="img/haplodx-logo.png" />
+  <img width="250px" src="img/haplo-logo.png" />
   <h1 align="center">HaploDynamics</h1>
   <p align="center">A python library to simulate genomic data</p>
 </p>
-
-<br>
 
 # Presentation
 [![DOI](https://zenodo.org/badge/609227235.svg)](https://zenodo.org/badge/latestdoi/609227235)
