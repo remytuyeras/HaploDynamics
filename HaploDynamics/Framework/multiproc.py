@@ -33,7 +33,7 @@ class Model(object):
     return npos, afs_sample, pos_dist
 
   def genotype_schema(self,alpha=4/30,afs=afs_sample):
-    p =  afs(alpha)
+    p = afs(alpha)
     #We use the minor allele frequency as a reference
     maf = min(p,1-p)
     #Probability for minor homogeneous genotypes
@@ -118,7 +118,7 @@ class Model(object):
   def generate_vcf(self,strength,population,Npop,chrom = "23"):
     #Values needed to make the VCF file
     alpha, beta, gamma = population_mld(population)
-    nuc   = ["A","C","G","T"]
+    nuc = ["A","C","G","T"]
     #Function to write a variant's row in the VCF file
     def write_genotype(f,vector):
       A = random.choice(nuc)
@@ -128,11 +128,11 @@ class Model(object):
       f.write("\t".join(info+genotypes)+self.eol)
       f.flush()
     #Important parameters to control the memory space
-    pre_vector  = None
-    vector      = None
-    Npos        = sum([npos for npos,_,_ in self.landscape])+1
+    pre_vector = None
+    vector = None
+    Npos = sum([npos for npos,_,_ in self.landscape])+1
     #For the loop
-    maf         = None
+    maf = None
     #For the output
     speed = None
     max_mem = None
