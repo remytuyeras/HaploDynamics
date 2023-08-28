@@ -51,7 +51,7 @@ def afs_sample(alpha=4/30):
 #plt.show()
 
 def genotype_schema(alpha=4/30):
-  p =  afs_sample(alpha)
+  p = afs_sample(alpha)
   #We use the minor allele frequency as a reference
   maf = min(p,1-p)
   #Probability for minor homogeneous genotypes
