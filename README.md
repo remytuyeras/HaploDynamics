@@ -30,7 +30,7 @@
   - **A comprehensive set of arithmetic operations**[&#x2197;](docs/source/framework-doc.md) (coming soon) for working with mutiple VCF files.
   - **Detailed documentation**[&#x2197;](#documentation) with thorough tutorials and performance analyses to help you get started quickly.
 
-### Release ```v0.4b*```:
+### Release v0.4b*:
 
   * **Compose your own mutation model:** the class ```Model``` now lets you create your own mutation model and use it with the generative functions of the HaploDX framework.
       ```python
