@@ -26,7 +26,32 @@ The module currently contains the following features:
 ---
 
 ## HaploDynamics.Framework.Model
-This section describes the class ```Model```, which provides methods for modeling population-specific genomic data in variant call format (VCF). The class currently has the following methods:
+This section describes the class ```Model```, which provides methods for modeling population-specific genomic data in variant call format (VCF). The class also allows users to create their own mutation models and combine them with its generative functionalities. 
+
+For example, the following code snippet shows how to define a simulation with a mutation profile identical to the one used by the functions in the ```HaploDX``` module. Alternatively, users could replace the process ```Model.standard_schema()``` with their own schema generator to create simulations with custom mutation profiles.
+
+```python
+#Typical example for the class Model
+
+import HaploDynamics.Framework as fmx
+
+#Start your simulation
+model = fmx.Model("tutorial")
+#Initialize the genomic landscape
+model.initiate_landscape(reference = 1.245)
+#Design your own genomic landscape with any allele frequency model
+model.extend_landscape(*(fmx.Model.standard_schema(20) for _ in range(6)))
+
+#Population and LD parameters
+strength = 1
+population = 0.1
+Npop = 1000
+chrom = "1"
+
+#Generate the simulation in a VCF file
+model.generate_vcf(strength,population,Npop,chrom)
+``` 
+The class currently has the following methods:
 
 * [HaploDynamics.Framework.Model.\_\_init\_\_](#haplodynamicsframeworkmodel__init__)
 * [HaploDynamics.Framework.Model.initiate_landscape](#haplodynamicsframeworkmodelinitiate_landscape)
