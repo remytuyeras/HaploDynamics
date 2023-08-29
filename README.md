@@ -16,50 +16,57 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/remytuyeras/haplodynamics/badge)](https://www.codefactor.io/repository/github/remytuyeras/haplodynamics)
 [![Codecov](https://github.com/remytuyeras/HaploDynamics/actions/workflows/main.yaml/badge.svg)](https://github.com/remytuyeras/HaploDynamics/actions/workflows/main.yaml)
 
-**HaploDynamics** (**HaploDX**) is a Python 3+ library that provides a collection of functions for simulating population-specific genomic data. It is part of the Genetic Simulator Resources (GSR) catalog. You can access the GSR catalog by clicking on the image below.
+**HaploDynamics** (**HaploDX**) is a Python 3+ library that provides a collection of functions for simulating population-specific genomic data. The package is part of the Genetic Simulator Resources (GSR) catalog, which can accessed by clicking on the image below.
 
 <div style="width: 180px; margin: auto;"><a href="https://surveillance.cancer.gov/genetic-simulation-resources/"><img src="https://surveillance.cancer.gov/gsr/static/img/gsr_tile.jpg" alt="Catalogued on GSR" width="180" height="60" /></a></div>
 
 ## Highlights and updates
 
-1. The [documentation](#documentation) has been enhanced with tutorials and performance analyses;
+### Five reasons to use this package:
 
-2. Release version ```0.4b*```:
-    * **Compose your own mutation model:** the class ```Model``` now lets you create your own mutation model and use it with the generative functions of the HaploDX framework.
-        ```python
-        import HaploDynamics.Framework as fmx
-        #Start your simulation
-        model = fmx.Model("tutorial")
-        #Initialize the genomic landscape
-        model.initiate_landscape(reference = 1.245)
-        #Design your own genomic landscape with any allele frequency model
-        model.extend_landscape(*(fmx.Model.standard_schema(20) for _ in range(6)))
-        #Population and LD parameters
-        strength = 1
-        population = 0.1
-        Npop = 1000
-        chrom = "1"
-        #Generate the simulation in a VCF file
-        model.generate_vcf(strength,population,Npop,chrom)
-        ```
+  - **An intuitive user interface** for writing short, concise Python code that achieves complex and realistic VCF simulations (see [here](#use-cases)).
+  - **Speed and efficiency**, with a lightweight implementation that allows for fast generation of large VCF files (see [here](docs/source/framework-doc.md#haplodynamicsframeworkmodelgenerate_vcf)).
+  - **Flexibility**, with the ability to mix your own models with the generative framework to create custom VCF simulations (see [here](docs/source/framework-doc.md#haplodynamicsframeworkmodelextend_landscape)).
+  - **A comprehensive set of arithmetic operations** (coming soon) for working with mutiple VCF files (see [here](docs/source/framework-doc.md)).
+  - **Detailed documentation** with thorough tutorials and performance analyses to help you get started quickly (see [here](#documentation)).
 
-    * [HaploDynamics.Framework.Model.initiate_landscape](docs/source/framework-doc.md#haplodynamicsframeworkmodelinitiate_landscape) added;
-    * [HaploDynamics.Framework.Model.extend_landscape](docs/source/framework-doc.md#haplodynamicsframeworkmodelextend_landscape) added;
-    * [HaploDynamics.Framework.Model.standard_schema](docs/source/framework-doc.md#haplodynamicsframeworkmodelstandard_schema) added;
-    * [HaploDynamics.Framework.Model.genotype_schema](docs/source/framework-doc.md#haplodynamicsframeworkmodelgenotype_schema) added;
-    * [HaploDynamics.Framework.Model.linkage_disequilibrium](docs/source/framework-doc.md#haplodynamicsframeworkmodellinkage_disequilibrium) added;
-    * [HaploDynamics.Framework.Model.cond_genotype_schema](docs/source/framework-doc.md#haplodynamicsframeworkmodelcond_genotype_schema) added;
-    * [Documentation for the Framework module](docs/source/framework-doc.md) polished;
-    * Various typos and clumsy phrasing have been corrected in the [documentation](#documentation);
-    * Loading bar appearance changed:
-        ```shell
-        $ python myscript.py
-        Model.generate_vcf: |████████████████████| 100%
-        time (sec.): 0.7510931491851807
-        max. mem (MB): 0.11163139343261719
-        cur. mem (MB): 0.0834970474243164
-        ```
-  
+### Release ```v0.4b*```:
+
+  * **Compose your own mutation model:** the class ```Model``` now lets you create your own mutation model and use it with the generative functions of the HaploDX framework.
+      ```python
+      import HaploDynamics.Framework as fmx
+      #Start your simulation
+      model = fmx.Model("tutorial")
+      #Initialize the genomic landscape
+      model.initiate_landscape(reference = 1.245)
+      #Design your own genomic landscape with any allele frequency model
+      model.extend_landscape(*(fmx.Model.standard_schema(20) for _ in range(6)))
+      #Population and LD parameters
+      strength = 1
+      population = 0.1
+      Npop = 1000
+      chrom = "1"
+      #Generate the simulation in a VCF file
+      model.generate_vcf(strength,population,Npop,chrom)
+      ```
+
+  * [HaploDynamics.Framework.Model.initiate_landscape](docs/source/framework-doc.md#haplodynamicsframeworkmodelinitiate_landscape) added;
+  * [HaploDynamics.Framework.Model.extend_landscape](docs/source/framework-doc.md#haplodynamicsframeworkmodelextend_landscape) added;
+  * [HaploDynamics.Framework.Model.standard_schema](docs/source/framework-doc.md#haplodynamicsframeworkmodelstandard_schema) added;
+  * [HaploDynamics.Framework.Model.genotype_schema](docs/source/framework-doc.md#haplodynamicsframeworkmodelgenotype_schema) added;
+  * [HaploDynamics.Framework.Model.linkage_disequilibrium](docs/source/framework-doc.md#haplodynamicsframeworkmodellinkage_disequilibrium) added;
+  * [HaploDynamics.Framework.Model.cond_genotype_schema](docs/source/framework-doc.md#haplodynamicsframeworkmodelcond_genotype_schema) added;
+  * [Documentation for the Framework module](docs/source/framework-doc.md) polished;
+  * Various typos and clumsy phrasing have been corrected in the [documentation](#documentation);
+  * Loading bar appearance changed:
+      ```shell
+      $ python myscript.py
+      Model.generate_vcf: |████████████████████| 100%
+      time (sec.): 0.7510931491851807
+      max. mem (MB): 0.11163139343261719
+      cur. mem (MB): 0.0834970474243164
+      ```
+
 
 
 ## Installation
