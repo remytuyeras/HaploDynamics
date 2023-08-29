@@ -24,9 +24,9 @@
 
 ### Five reasons to use this package:
 
-  - **An intuitive user interface** for writing short, concise Python code that achieves complex and realistic VCF simulations (see [here](#use-cases)).
-  - **Speed and efficiency**, with a lightweight implementation that allows for fast generation of large VCF files (see [here](docs/source/framework-doc.md#haplodynamicsframeworkmodelgenerate_vcf)).
-  - **Flexibility**, with the ability to mix your own models with the generative framework to create custom VCF simulations (see [here](docs/source/framework-doc.md#haplodynamicsframeworkmodelextend_landscape)).
+  - **An intuitive user interface** for writing short, concise Python code that achieves realistic simulations (see [here](#use-cases)).
+  - **Speed and efficiency**, with a lightweight implementation that allows for fast generation of siumlations (see [here](docs/source/framework-doc.md#haplodynamicsframeworkmodelgenerate_vcf)).
+  - **Flexibility**, with the ability to mix your own models with the generative framework to create custom simulations (see [here](docs/source/framework-doc.md#haplodynamicsframeworkmodelextend_landscape)).
   - **A comprehensive set of arithmetic operations** (coming soon) for working with mutiple VCF files (see [here](docs/source/framework-doc.md)).
   - **Detailed documentation** with thorough tutorials and performance analyses to help you get started quickly (see [here](#documentation)).
 
