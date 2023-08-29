@@ -26,7 +26,7 @@
 
   - **An intuitive user interface**[&#x2197;](#use-cases) for writing short, concise Python code that achieves realistic simulations.
   - **Speed and efficiency**,[&#x2197;](docs/source/framework-doc.md#haplodynamicsframeworkmodelgenerate_vcf) with a lightweight implementation that allows for fast generation of simulations.
-  - **Flexibility**,[&#x2197;](docs/source/framework-doc.md#haplodynamicsframeworkmodelextend_landscape) with the ability to mix your own models with the generative framework to create custom simulations.
+  - **Flexibility**,[&#x2197;](docs/source/framework-doc.md#haplodynamicsframeworkmodelextend_landscape) with the ability to mix your own models with the framework to create custom simulations.
   - **A comprehensive set of arithmetic operations**[&#x2197;](docs/source/framework-doc.md) (coming soon) for working with mutiple VCF files.
   - **Detailed documentation**[&#x2197;](#documentation) with thorough tutorials and performance analyses to help you get started quickly.
 
