@@ -14,7 +14,7 @@
 [![Downloads](https://static.pepy.tech/badge/HaploDynamics)](https://pepy.tech/project/HaploDynamics)
 
 [![CodeFactor](https://www.codefactor.io/repository/github/remytuyeras/haplodynamics/badge)](https://www.codefactor.io/repository/github/remytuyeras/haplodynamics)
-[![HaploDynamics check](https://github.com/remytuyeras/HaploDynamics/actions/workflows/main.yaml/badge.svg)](https://github.com/remytuyeras/HaploDynamics/actions/workflows/main.yaml)
+[![Codecov](https://github.com/remytuyeras/HaploDynamics/actions/workflows/main.yaml/badge.svg)](https://github.com/remytuyeras/HaploDynamics/actions/workflows/main.yaml)
 
 **HaploDynamics** (**HaploDX**) is a Python 3+ library that provides a collection of functions for simulating population-specific genomic data. It is part of the Genetic Simulator Resources (GSR) catalog. You can access the GSR catalog by clicking on the image below.
 
